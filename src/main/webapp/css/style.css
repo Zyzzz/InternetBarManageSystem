@@ -529,6 +529,8 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 	padding:0.6em 1em;
 	color:#7D7D7D;
 }
+
+
 .subscribe form input[type="submit"]{
 	outline:none;
 	border:2px solid #000;
@@ -818,13 +820,14 @@ p span.overline{
 	display: block;
 	text-transform: uppercase;
 }
-.login-right input[type="text"] {
+.login-right input {
 	border: 1px solid #555;
 	outline-color:#08538C;
 	width: 96%;
 	font-size:0.8125em;
 	padding: 0.5em;
 }
+
 .login-right input[type="submit"] {
 	border: 2px solid #000;
 	color: #000;
@@ -869,6 +872,15 @@ p span.overline{
 	font-size: 1em;
 	padding: 0.5em;
 }
+
+.register-top-grid input[type="password"], .register-bottom-grid input[type="password"] {
+    border: 1px solid #555;
+    outline-color:#FD9F3E;
+    width: 96%;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
 .checkbox {
 	margin-bottom: 4px;
 	padding-left: 27px;

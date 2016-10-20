@@ -1,7 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Login</title>
+<title>Account</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/owl.carousel.css" rel="stylesheet">
@@ -74,11 +75,11 @@ $(window).load(function() {
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 	        </button>
-	       <h1 class="navbar-brand"><a  href="index.html">swim wear</a></h1>
+	        <h1 class="navbar-brand"><a  href="index.html">swim wear</a></h1>
 	    </div>
 	    <!--/.navbar-header-->
 	
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
 			<li><a href="index.html">Home</a></li>
 		        <li class="dropdown">
@@ -213,40 +214,55 @@ $(window).load(function() {
 				</div>
 			</div>
 			<!--header-->
-			<!--contact-->
 			<div class="content">
- <div class="main-1">
+ <!-- registration -->
+	<div class="main-1">
 		<div class="container">
-<div class="login-page">
-			   <div class="account_grid">
-			   <div class="col-md-6 login-left">
-			  	 <h3>NEW CUSTOMERS</h3>
-				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-				 <a class="acount-btn" href="account.html">Create an Account</a>
-			   </div>
-			   <div class="col-md-6 login-right">
-			  	<h3>REGISTERED CUSTOMERS</h3>
-				<p>If you have an account with us, please log in.</p>
-				<form>
-				  <div>
-					<span>Email Address<label>*</label></span>
-					<input type="text"> 
-				  </div>
-				  <div>
-					<span>Password<label>*</label></span>
-					<input type="text"> 
-				  </div>
-				  <a class="forgot" href="#">Forgot Your Password?</a>
-				  <input type="submit" value="Login">
-			    </form>
-			   </div>	
-			   <div class="clearfix"> </div>
-			 </div>
+			<div class="register">
+		  	  <form> 
+				 <div class="register-top-grid">
+					<h3>PERSONAL INFORMATION</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>First Name<label>*</label></span>
+						<input type="text"> 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>Last Name<label>*</label></span>
+						<input type="text"> 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						 <span>Email Address<label>*</label></span>
+						 <input type="text"> 
+					 </div>
+					 <div class="clearfix"> </div>
+					   <a class="news-letter" href="#">
+						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+					   </a>
+					 </div>
+				     <div class="register-bottom-grid">
+						    <h3>LOGIN INFORMATION</h3>
+							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+								<span>Password<label>*</label></span>
+								<input type="password">
+							 </div>
+							 <div class="wow fadeInRight" data-wow-delay="0.4s">
+								<span>Confirm Password<label>*</label></span>
+								<input type="password">
+							 </div>
+					 </div>
+				</form>
+				<div class="clearfix"> </div>
+				<div class="register-but">
+				   <form>
+					   <input type="submit" value="submit">
+					   <div class="clearfix"> </div>
+				   </form>
+				</div>
 		   </div>
-		   </div>
+		 </div>
 	</div>
-	</div>
-<!-- login -->
+<!-- registration -->
+
 <div class="subscribe">
 	 <div class="container">
 	 <div class="subscribe1">

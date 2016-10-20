@@ -11,10 +11,10 @@
 
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
-    <mvc:resources location="/WEB-INF/pages/images/" mapping="images/**"/>
-    <mvc:resources location="/WEB-INF/pages/js/" mapping="js/**"/>
-    <mvc:resources location="/WEB-INF/pages/fonts/" mapping="fonts/**"/>
-    <mvc:resources location="/WEB-INF/pages/css/" mapping="css/**"/>
+    <mvc:resources location="/images/" mapping="images/**"/>
+    <mvc:resources location="/js/" mapping="js/**"/>
+    <mvc:resources location="/fonts/" mapping="fonts/**"/>
+    <mvc:resources location="/css/" mapping="css/**"/>
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
 
@@ -23,6 +23,6 @@
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".html"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 </beans>

@@ -228,14 +228,14 @@ $(window).load(function() {
 			   <div class="col-md-6 login-right">
 			  	<h3>REGISTERED CUSTOMERS</h3>
 				<p>If you have an account with us, please log in.</p>
-				<form>
+				<form method = 'post' action = 'userlogin'>
 				  <div>
 					<span>Email Address<label>*</label></span>
-					<input type="text"> 
+					<input name="email" type="text">
 				  </div>
 				  <div>
 					<span>Password<label>*</label></span>
-					<input type="text"> 
+					<input name="password" type="password">
 				  </div>
 				  <a class="forgot" href="#">Forgot Your Password?</a>
 				  <input type="submit" value="Login">
@@ -257,7 +257,7 @@ $(window).load(function() {
 		 <form>
 			 <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
 			 <input type="submit" value="JOIN">
-		 </form>
+			 </form>
 	 </div>
 	 <div class="clearfix"></div>
 	 </div>
