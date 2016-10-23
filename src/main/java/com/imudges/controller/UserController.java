@@ -1,24 +1,36 @@
 package com.imudges.controller;
 
+import com.imudges.model.UserEntity;
+import com.imudges.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/19.
  */
 @Controller
 public class UserController {
+    @Autowired
+    UserRepository userRepository;
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String index() {
+
         return "login";
     }
 
     @ResponseBody
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
     public String login(String email,String password){
-        return email;
+        List<UserEntity> userList = userRepository.findByEmailAndPassword(email, password);
+        if(userList.size()==0)
+            return "失败";
+        else
+            return email;
     }
 
 
