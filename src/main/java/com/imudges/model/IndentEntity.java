@@ -13,6 +13,7 @@ public class IndentEntity {
     private Integer number;
     private UserEntity userByUserid;
     private CommodityEntity commodityByCommodityId;
+    private UserEntity userByUserId;
 
     @Id
     @Column(name = "indentid", nullable = false)
@@ -84,5 +85,15 @@ public class IndentEntity {
 
     public void setCommodityByCommodityId(CommodityEntity commodityByCommodityId) {
         this.commodityByCommodityId = commodityByCommodityId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid", nullable = false)
+    public UserEntity getUserByUserId() {
+        return userByUserId;
+    }
+
+    public void setUserByUserId(UserEntity userByUserId) {
+        this.userByUserId = userByUserId;
     }
 }
