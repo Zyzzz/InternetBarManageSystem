@@ -952,7 +952,7 @@ p span.overline{
 .register-but{
 	margin-top:1em;
 }
-.register-but form input[type="submit"] {
+.register-but input[type="button"] {
 	border: 2px solid #000;
 	color: #000;
 	font-size: 1.2em;
@@ -966,7 +966,7 @@ p span.overline{
 	outline: none;
 	background-color: #fff;
 }
-.register-but input[type="submit"]:hover {
+.register-but input[type="button"]:hover {
 	background:#000;
 	color: #fff;
 }

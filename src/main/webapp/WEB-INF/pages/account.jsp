@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -30,6 +31,25 @@ $(window).load(function() {
     controlNav: "thumbnails"
   });
 });
+
+function checkUser(){
+	var email = document.getElementById("email").value;
+	var password = document.getElementById("password").value;
+	var passwordagain = document.getElementById("passwordagain").value;
+	if(email == ""  ){
+		alert("邮箱不能为空");
+		return false;
+	}
+	if(password == ""  ){
+		alert("密码不能为空");
+		return false;
+	}
+	if(password != passwordagain){
+		alert("两次输入的密码不同");
+		return false
+	}
+	document.getElementById("formid").submit();
+}
 </script>
 
 
@@ -219,20 +239,20 @@ $(window).load(function() {
 	<div class="main-1">
 		<div class="container">
 			<div class="register">
-		  	  <form> 
+		  	  <form method = 'post' action = 'submit_account'id="formid" >
 				 <div class="register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>First Name<label>*</label></span>
-						<input type="text"> 
+						<input name = "firstName" type="text" id="firstName">
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
 						<span>Last Name<label>*</label></span>
-						<input type="text"> 
+						<input  name = "lastName" type="text"id="lastName">
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
 						 <span>Email Address<label>*</label></span>
-						 <input type="text"> 
+						 <input name="email" type="text" id="email">
 					 </div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
@@ -243,21 +263,19 @@ $(window).load(function() {
 						    <h3>LOGIN INFORMATION</h3>
 							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 								<span>Password<label>*</label></span>
-								<input type="password">
+								<input name="password" type="password" id="password">
 							 </div>
 							 <div class="wow fadeInRight" data-wow-delay="0.4s">
 								<span>Confirm Password<label>*</label></span>
-								<input type="password">
+								<input type="password"id="passwordagain">
 							 </div>
 					 </div>
+				  <div class="clearfix"> </div>
+				  <div class="register-but">
+					  <input type="button" value="submit" onclick = "checkUser();">
+					  <div class="clearfix"> </div>
+				  </div>
 				</form>
-				<div class="clearfix"> </div>
-				<div class="register-but">
-				   <form>
-					   <input type="submit" value="submit">
-					   <div class="clearfix"> </div>
-				   </form>
-				</div>
 		   </div>
 		 </div>
 	</div>

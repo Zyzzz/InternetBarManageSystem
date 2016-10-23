@@ -15,7 +15,7 @@ public class UserEntity {
     private int jurisdiction;
     private String firstname;
     private String lastname;
-    private Collection<IndentEntity> indentByUserId;
+    private Collection<IndentEntity> indentByUserid;
 
     @Id
     @Column(name = "userid", nullable = false)
@@ -105,12 +105,12 @@ public class UserEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<IndentEntity> getIndentByUserId() {
-        return indentByUserId;
+    @OneToMany(mappedBy = "userByUserid")
+    public Collection<IndentEntity> getIndentByUserid() {
+        return indentByUserid;
     }
 
-    public void setIndentByUserId(Collection<IndentEntity> indentByUserId) {
-        this.indentByUserId = indentByUserId;
+    public void setIndentByUserid(Collection<IndentEntity> indentByUserid) {
+        this.indentByUserid = indentByUserid;
     }
 }
