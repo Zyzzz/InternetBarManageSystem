@@ -230,6 +230,7 @@ $(window).load(function() {
 				<p>If you have an account with us, please log in.</p>
 				<form method = 'post' action = 'userlogin'>
 				  <div>
+					  <span style="color: #FF0000">${message}</span>
 					<span>Email Address<label>*</label></span>
 					<input name="email" type="text">
 				  </div>

@@ -29,10 +29,14 @@ public class UserController {
 
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
     public String userlogin(String email,String password,ModelMap modelMap) {
+    ;
         UserEntity user = userRepository.findByEmailAndPassword(email, password);
         //userRepository.save();
-        if (user.getEmail() == "")
-            return "失败";
+        if (user==null) {
+            String message = " Email or password mistake";
+            modelMap.addAttribute("message", message);
+            return "login";
+        }
         else{
             modelMap.addAttribute("user", user);
             return "index";
