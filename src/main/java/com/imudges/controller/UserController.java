@@ -4,11 +4,9 @@ import com.imudges.model.UserEntity;
 import com.imudges.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/19.
@@ -17,22 +15,28 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserRepository userRepository;
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String index() {
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    public String index(ModelMap modelMap) {
+        UserEntity user = new UserEntity();
+        modelMap.addAttribute("user", user);
+        return "index";
+    }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
         return "login";
     }
 
-    @ResponseBody
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
-    public String login(String email,String password){
-        List<UserEntity> userList = userRepository.findByEmailAndPassword(email, password);
-
+    public String userlogin(String email,String password,ModelMap modelMap) {
+        UserEntity user = userRepository.findByEmailAndPassword(email, password);
         //userRepository.save();
-        if(userList.size()==0)
+        if (user.getEmail() == "")
             return "失败";
-        else
-            return email;
+        else{
+            modelMap.addAttribute("user", user);
+            return "index";
+        }
         //return "";
     }
 
@@ -41,7 +45,7 @@ public class UserController {
         return "account";
     }
 
-    @ResponseBody
+    //@ResponseBody
     @RequestMapping(value = "/submit_account", method = RequestMethod.POST)
     public String submit_account(String firstName,String lastName,String email,String password){
         UserEntity user = new UserEntity();
@@ -50,8 +54,9 @@ public class UserController {
         user.setEmail(email);
         user.setPassword(password);
         userRepository.save(user);
-        return "Success";
+        return "login";
     }
+
 
 
 }
