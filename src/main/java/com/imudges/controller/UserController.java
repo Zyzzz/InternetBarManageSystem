@@ -2,12 +2,16 @@ package com.imudges.controller;
 
 import com.imudges.model.UserEntity;
 import com.imudges.repository.UserRepository;
+import com.imudges.utils.JsonTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 /**
  * Created by Administrator on 2016/10/19.
  */
@@ -28,8 +32,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
-    public String userlogin(String email,String password,ModelMap modelMap) {
-    ;
+    public String userlogin(@CookieValue(value = "userCookie",required  = false) String userCookie,HttpServletResponse response, String email, String password, ModelMap modelMap) {
         UserEntity user = userRepository.findByEmailAndPassword(email, password);
         //userRepository.save();
         if (user==null) {
@@ -38,6 +41,10 @@ public class UserController {
             return "login";
         }
         else{
+
+            Cookie cookie = new Cookie("userCookie",JsonTool.objToJsonString(user));
+            cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
+            response.addCookie(cookie);
             modelMap.addAttribute("user", user);
             return "index";
         }
