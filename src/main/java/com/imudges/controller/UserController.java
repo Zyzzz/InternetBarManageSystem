@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Created by Administrator on 2016/10/19.
  */
@@ -26,7 +29,9 @@ public class UserController {
             modelMap.addAttribute("user", user);
             return "index";
         }else {
+           // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
             UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+            System.out.println("UserId:"+user.getFirstname());
             modelMap.addAttribute("user", user);
             return "index";
         }
@@ -38,7 +43,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
-    public String userlogin(@CookieValue(value = "userCookie",required  = false) String userCookie,HttpServletResponse response, String email, String password, ModelMap modelMap) {
+    public String userlogin(@CookieValue(value = "userCookie",required  = false) String userCookie,HttpServletResponse response, String email, String password, ModelMap modelMap) throws UnsupportedEncodingException {
         UserEntity user = userRepository.findByEmailAndPassword(email, password);
         //userRepository.save();
         if (user==null) {
@@ -47,8 +52,8 @@ public class UserController {
             return "login";
         }
         else{
-
-            Cookie cookie = new Cookie("userCookie",JsonTool.objToJsonString(user));
+            String Json = JsonTool.objToJsonString(user);
+            Cookie cookie = new Cookie("userCookie", URLEncoder.encode(Json,"utf-8"));
             cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
             response.addCookie(cookie);
             modelMap.addAttribute("user", user);

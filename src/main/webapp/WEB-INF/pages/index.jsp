@@ -33,23 +33,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text"><a
+					<li class="text">
 							<c:choose>
-								<c:when test="${user.firstname == ''}">
-									href="login.html"
+								<c:when test="${empty user.firstname}">
+									<a href="login.html">LOGIN</a>
 								</c:when>
 								<c:otherwise>
+									<a>${user.firstname}</a>
 								</c:otherwise>
 							</c:choose>
-							>
-					<c:choose>
-						<c:when test="${user.firstname == ''}">
-							LOGIN
-						</c:when>
-						<c:otherwise>
-							${user.firstname}
-						</c:otherwise>
-					</c:choose></a></li>
+					</li>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
