@@ -22,7 +22,7 @@ import java.net.URLEncoder;
 public class UserController {
     @Autowired
     UserRepository userRepository;
-    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/index.html", method =  RequestMethod.GET)
     public String index(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap) {
         if(userCookie == null) {
             UserEntity user = new UserEntity();
