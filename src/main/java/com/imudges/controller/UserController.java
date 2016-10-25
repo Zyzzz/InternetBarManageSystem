@@ -14,6 +14,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.security.NoSuchAlgorithmException;
+
+import static com.imudges.utils.SHA256Test.SHA256Encrypt;
 
 /**
  * Created by Administrator on 2016/10/19.
@@ -43,7 +46,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
-    public String userlogin(@CookieValue(value = "userCookie",required  = false) String userCookie,HttpServletResponse response, String email, String password, ModelMap modelMap) throws UnsupportedEncodingException {
+    public String userlogin(@CookieValue(value = "userCookie",required  = false) String userCookie,HttpServletResponse response, String email, String password, ModelMap modelMap) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         UserEntity user = userRepository.findByEmailAndPassword(email, password);
         //userRepository.save();
         if (user==null) {
@@ -52,7 +55,8 @@ public class UserController {
             return "login";
         }
         else{
-            String Json = JsonTool.objToJsonString(user);
+            //String Json = JsonTool.objToJsonString(user);
+            SHA256Encrypt()
             Cookie cookie = new Cookie("userCookie", URLEncoder.encode(Json,"utf-8"));
             cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
             response.addCookie(cookie);

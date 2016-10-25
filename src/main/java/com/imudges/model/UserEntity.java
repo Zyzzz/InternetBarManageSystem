@@ -15,6 +15,7 @@ public class UserEntity {
     private int jurisdiction;
     private String firstname;
     private String lastname;
+    private String cookie;
     private Collection<IndentEntity> indentByUserid;
 
     @Id
@@ -76,6 +77,12 @@ public class UserEntity {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    @Basic
+    @Column(name = "cookie", nullable = true,length = 255)
+    public String getCookie(){ return cookie; }
+
+    public void setCookie(String cookie) { this.cookie = cookie; }
 
     @Override
     public boolean equals(Object o) {
