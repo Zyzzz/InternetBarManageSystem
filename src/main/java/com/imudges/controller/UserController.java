@@ -2,7 +2,6 @@ package com.imudges.controller;
 
 import com.imudges.model.UserEntity;
 import com.imudges.repository.UserRepository;
-import com.imudges.utils.JsonTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 
 import static com.imudges.utils.SHA256Test.SHA256Encrypt;
@@ -33,7 +31,8 @@ public class UserController {
             return "index";
         }else {
            // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
-            UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+            UserEntity user = userRepository.findByCookie(userCookie);
+            //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
             modelMap.addAttribute("user", user);
             return "index";
@@ -56,8 +55,10 @@ public class UserController {
         }
         else{
             //String Json = JsonTool.objToJsonString(user);
-            SHA256Encrypt()
-            Cookie cookie = new Cookie("userCookie", URLEncoder.encode(Json,"utf-8"));
+            String cookieencrypt = SHA256Encrypt(user.getUserid()+user.getEmail());
+            Cookie cookie = new Cookie("userCookie",cookieencrypt);
+            user.setCookie(cookieencrypt);
+            userRepository.saveAndFlush(user);
             cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
             response.addCookie(cookie);
             modelMap.addAttribute("user", user);
