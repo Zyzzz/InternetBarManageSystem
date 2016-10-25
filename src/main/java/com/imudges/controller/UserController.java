@@ -20,10 +20,16 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String index(ModelMap modelMap) {
-        UserEntity user = new UserEntity();
-        modelMap.addAttribute("user", user);
-        return "index";
+    public String index(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap) {
+        if(userCookie == null) {
+            UserEntity user = new UserEntity();
+            modelMap.addAttribute("user", user);
+            return "index";
+        }else {
+            UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+            modelMap.addAttribute("user", user);
+            return "index";
+        }
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
