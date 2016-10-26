@@ -13,6 +13,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.imudges.utils.SHA256Test.SHA256Encrypt;
 
@@ -55,7 +58,9 @@ public class UserController {
         }
         else{
             //String Json = JsonTool.objToJsonString(user);
-            String cookieencrypt = SHA256Encrypt(user.getUserid()+user.getEmail());
+            Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String data = format.format(new Date());
+            String cookieencrypt = SHA256Encrypt(user.getUserid()+user.getEmail()+data);
             Cookie cookie = new Cookie("userCookie",cookieencrypt);
             user.setCookie(cookieencrypt);
             userRepository.saveAndFlush(user);
