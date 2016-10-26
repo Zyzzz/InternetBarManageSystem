@@ -97,7 +97,7 @@ public class UserEntity {
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
-
+        if (cookie != null ? !cookie.equals(that.cookie) : that.cookie != null ) return false;
         return true;
     }
 
@@ -109,6 +109,7 @@ public class UserEntity {
         result = 31 * result + jurisdiction;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (cookie != null ? cookie.hashCode() : 0);
         return result;
     }
 
