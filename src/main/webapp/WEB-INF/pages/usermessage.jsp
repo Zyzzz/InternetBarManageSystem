@@ -32,6 +32,15 @@ $(window).load(function() {
   });
 });
 
+function delCookie()
+{
+	var exp = new Date();
+	exp.setTime(exp.getTime() - 1);
+	var cval=getCookie(userCookie);
+	if(cval!=null)
+		document.cookie= userCookie + "="+cval+";expires="+exp.toGMTString();
+	document.getElementById("loginoutform").submit();
+}
 function checkUser(){
 	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
@@ -70,7 +79,7 @@ function checkUser(){
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text"><a href="login.html">login</a>
+					<li class="text"><a href="login">login</a>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
@@ -267,10 +276,17 @@ function checkUser(){
 							 </div>
 					 </div>
 				  <div class="clearfix"> </div>
-				 	 <div class="register-but">
+				 	  <div class="register-but">
 					  <input type="button" value="submit" onclick = "checkUser();">
 					  <div class="clearfix"> </div>
 				  </div>
+				</form>
+				<form  action = "login" name="loginoutform">
+					<div class="clearfix"> </div>
+					<div class="register-but">
+						<input type="button" value="loginout" onclick = "delCookie();">
+						<div class="clearfix"> </div>
+					</div>
 				</form>
 		   </div>
 		 </div>

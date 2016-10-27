@@ -85,7 +85,7 @@ public class UserController {
         user.setLastname(lastName);
         user.setEmail(email);
         user.setPassword(password);
-        if(checkbox) {
+        if(!checkbox) {
             userRepository.save(user);
             return "login";
         }else {
@@ -97,6 +97,7 @@ public class UserController {
             userRepository.saveAndFlush(user);
             cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
             response.addCookie(cookie);
+
             modelMap.addAttribute("user", user);
             return "index";
         }
@@ -118,8 +119,12 @@ public class UserController {
         }
     }
     @RequestMapping(value = "/submit_usermessage", method = RequestMethod.POST)
-    public String submit_usermessage(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap,String firstName,String lastName,String email,String password){
+    public String submit_usermessage(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap,String firstName,String lastName,String password){
         UserEntity user = userRepository.findByCookie(userCookie);
+        user.setFirstname(firstName);
+        user.setLastname(lastName);
+        user.setPassword(password);
+        userRepository.saveAndFlush(user);
         //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
         System.out.println("UserId:"+user.getFirstname());
         modelMap.addAttribute("user", user);
