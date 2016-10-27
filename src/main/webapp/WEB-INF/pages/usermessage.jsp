@@ -32,13 +32,22 @@ $(window).load(function() {
   });
 });
 
+function getCookie(name)
+{
+	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+	if(arr=document.cookie.match(reg))
+		return unescape(arr[2]);
+	else
+		return null;
+}
+
 function delCookie()
 {
 	var exp = new Date();
 	exp.setTime(exp.getTime() - 1);
-	var cval=getCookie(userCookie);
+	var cval=getCookie("userCookie");
 	if(cval!=null)
-		document.cookie= userCookie + "="+cval+";expires="+exp.toGMTString();
+		document.cookie= "userCookie" + "="+cval+";expires="+exp.toGMTString();
 	document.getElementById("loginoutform").submit();
 }
 function checkUser(){
