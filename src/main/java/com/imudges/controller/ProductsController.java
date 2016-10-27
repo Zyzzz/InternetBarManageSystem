@@ -31,4 +31,10 @@ public class ProductsController {
             return "products";
         }
     }
+
+    @RequestMapping(value = "/single.html", method =  RequestMethod.GET)
+    public String single(){
+        return "single";
+    }
+
 }

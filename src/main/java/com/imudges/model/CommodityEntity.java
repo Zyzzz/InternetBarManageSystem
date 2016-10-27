@@ -14,6 +14,7 @@ public class CommodityEntity {
     private short price;
     private String description;
     private ImageEntity imageByImageId;
+    private double discount;
     private Collection<IndentEntity> indentByCommodityId;
 
     @Id
@@ -56,6 +57,12 @@ public class CommodityEntity {
         this.description = description;
     }
 
+    @Basic
+    @Column(name = "discount",nullable = true)
+    public double getDiscount(){ return discount; }
+
+    public void setDiscount(double discount) { this.discount = discount; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,7 +75,7 @@ public class CommodityEntity {
         if (commodityname != null ? !commodityname.equals(that.commodityname) : that.commodityname != null)
             return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
-
+        if (discount != that.discount) return  false;
         return true;
     }
 
@@ -78,6 +85,7 @@ public class CommodityEntity {
         result = 31 * result + (commodityname != null ? commodityname.hashCode() : 0);
         result = 31 * result + (int) price;
         result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (int) discount;
         return result;
     }
 
