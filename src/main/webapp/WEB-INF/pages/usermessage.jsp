@@ -1,9 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Home</title>
+<title>Account</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/owl.carousel.css" rel="stylesheet">
@@ -13,10 +13,47 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-	<!-- cart -->
+<!-- cart -->
 		<script src="js/simpleCart.min.js"> </script>
 	<!-- cart -->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script src="js/imagezoom.js"></script>
+
+						<!-- FlexSlider -->
+  <script defer src="js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+
+function checkUser(){
+	var email = document.getElementById("email").value;
+	var password = document.getElementById("password").value;
+	var passwordagain = document.getElementById("passwordagain").value;
+	if(email == ""  ){
+		alert("邮箱不能为空");
+		return false;
+	}
+	if(password == ""  ){
+		alert("密码不能为空");
+		return false;
+	}
+	if(password != passwordagain){
+		alert("两次输入的密码不同");
+		return false
+	}
+	document.getElementById("formid").submit();
+}
+</script>
+
+
+
 </head>
 <body>
 	<!--header-->
@@ -33,19 +70,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text">
-							<c:choose>
-								<c:when test="${empty user.firstname}">
-									<a href="login.html">LOGIN</a>
-								</c:when>
-								<c:otherwise>
-									<a href="usermessage.html">${user.firstname}</a>
-								</c:otherwise>
-							</c:choose>
-					</li>
+					<li class="text"><a href="login.html">login</a>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
-								 <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
+								 <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 							</a>	
 							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>
@@ -71,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    </div>
 	    <!--/.navbar-header-->
 	
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
 			<li><a href="index.html">Home</a></li>
 		        <li class="dropdown">
@@ -206,323 +234,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<!--header-->
-		<div class="banner-section">
-			<div class="container">
-				<div class="banner-grids">
-					<div class="col-md-6 banner-grid">
-						<h2>the latest collections</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<a href="products.html" class="button"> shop now </a>
-					</div>
-				<div class="col-md-6 banner-grid1">
-						<img src="images/p2.png" class="img-responsive" alt=""/>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-		</div>
-		<div class="banner-bottom">
-		<div class="gallery-cursual">
-		<!--requried-jsfiles-for owl-->
-		<script src="js/owl.carousel.js"></script>
-			<script>
-				$(document).ready(function() {
-					$("#owl-demo").owlCarousel({
-						items : 3,
-						lazyLoad : true,
-						autoPlay : true,
-						pagination : false,
-					});
-				});
-			</script>
-		<!--requried-jsfiles-for owl -->
-		<!--start content-slider-->
-		<div id="owl-demo" class="owl-carousel text-center">
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b1.jpg" alt="name">
-				<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b2.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b3.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b4.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b1.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b6.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b7.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b1.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b2.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-			<div class="item">
-				<img class="lazyOwl" data-src="images/b3.jpg" alt="name">
-			<div class="item-info">
-					<h5>Lorem ipsum</h5>
-				</div>
-			</div>
-		</div>
-		<!--sreen-gallery-cursual-->
-		</div>
-		</div>
-		<div class="gallery">
-			<div class="container">
-			<h3>Featured products</h3>
-			<div class="gallery-grids">
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g1.png" class="img-responsive" alt=""/>
-					<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g2.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-					<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g3.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g4.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-					<div class="col-md-3 gallery-grid ">
-						<a href="products.html"><img src="images/g5.jpg" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-					<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g6.jpg" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info simpleCart_shelfItem">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-					<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g7.jpg" class="img-responsive" alt=""/><div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info simpleCart_shelfItem">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g8.jpg" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-					<div class="quick">
-					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-					</div>
-					</div></a>
-					<div class="galy-info simpleCart_shelfItem">
-						<p>Amour Women’s Amour...</p>
-						<div class="galry">
-						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
-						</div>
-					<div class="rating">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
-						
-					<div class="clearfix"></div>
-					</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		</div>
-		<div class="subscribe">
+			<div class="content">
+ <!-- registration -->
+	<div class="main-1">
+		<div class="container">
+			<div class="register">
+		  	  <form method = 'post' action = 'submit_account'id="formid" >
+				 <div class="register-top-grid">
+					<h3>PERSONAL INFORMATION</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>First Name<label>*</label></span>
+						<input name = "firstName" type="text" id="firstName">
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>Last Name<label>*</label></span>
+						<input  name = "lastName" type="text"id="lastName">
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						 <span>Email Address<label>*</label></span>
+						 <input name="email" type="text" id="email">
+					 </div>
+					 <div class="clearfix"> </div>
+					   <a class="news-letter" href="#">
+						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+					   </a>
+					 </div>
+				     <div class="register-bottom-grid">
+						    <h3>LOGIN INFORMATION</h3>
+							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+								<span>Password<label>*</label></span>
+								<input name="password" type="password" id="password">
+							 </div>
+							 <div class="wow fadeInRight" data-wow-delay="0.4s">
+								<span>Confirm Password<label>*</label></span>
+								<input type="password"id="passwordagain">
+							 </div>
+					 </div>
+				  <div class="clearfix"> </div>
+				  <div class="register-but">
+					  <input type="button" value="submit" onclick = "checkUser();">
+					  <div class="clearfix"> </div>
+				  </div>
+				</form>
+		   </div>
+		 </div>
+	</div>
+<!-- registration -->
+
+<div class="subscribe">
 	 <div class="container">
 	 <div class="subscribe1">
 		 <h4>the latest from swim wear</h4>
 		 </div>
 		 <div class="subscribe2">
 		 <form>
-			 <input type="text" class="text" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}">
+			 <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
 			 <input type="submit" value="JOIN">
 		 </form>
 	 </div>
 	 <div class="clearfix"></div>
 	 </div>
 </div>
+</div>
+
 	<!--footer-->
 		<div class="footer-section">
 			<div class="container">
@@ -578,6 +352,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	<!--footer-->
-		
+			
 </body>
 </html>

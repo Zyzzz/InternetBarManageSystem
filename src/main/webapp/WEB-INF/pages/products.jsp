@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
@@ -44,7 +45,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text"><a href="login.html">login</a>
+					<li class="text">
+						<c:choose>
+							<c:when test="${empty user.firstname}">
+								<a href="login.html">LOGIN</a>
+							</c:when>
+							<c:otherwise>
+								<a href="usermessage.html">${user.firstname}</a>
+							</c:otherwise>
+						</c:choose>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
