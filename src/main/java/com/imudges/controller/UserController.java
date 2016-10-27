@@ -90,8 +90,20 @@ public class UserController {
     }
 
     @RequestMapping(value = "/usermessage.html", method = RequestMethod.GET)
-    public String usermessage(){
-        return "usermessage";
+    public String usermessage(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap){
+        if(userCookie == null) {
+            UserEntity user = new UserEntity();
+            modelMap.addAttribute("user", user);
+            return "usermessage";
+        }else {
+            // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
+            UserEntity user = userRepository.findByCookie(userCookie);
+            //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+            System.out.println("UserId:"+user.getFirstname());
+            modelMap.addAttribute("user", user);
+            return "usermessage";
+        }
+
     }
 
 
