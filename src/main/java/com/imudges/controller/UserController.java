@@ -79,14 +79,27 @@ public class UserController {
 
     //@ResponseBody
     @RequestMapping(value = "/submit_account", method = RequestMethod.POST)
-    public String submit_account(String firstName,String lastName,String email,String password){
+    public String submit_account(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap,HttpServletResponse response,String firstName,String lastName,String email,String password,boolean checkbox){
         UserEntity user = new UserEntity();
         user.setFirstname(firstName);
         user.setLastname(lastName);
         user.setEmail(email);
         user.setPassword(password);
-        userRepository.save(user);
-        return "login";
+        if(checkbox) {
+            userRepository.save(user);
+            return "login";
+        }else {
+            Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String data = format.format(new Date());
+            String cookieencrypt = SHA256Encrypt(user.getUserid()+user.getEmail()+data);
+            Cookie cookie = new Cookie("userCookie",cookieencrypt);
+            user.setCookie(cookieencrypt);
+            userRepository.saveAndFlush(user);
+            cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
+            response.addCookie(cookie);
+            modelMap.addAttribute("user", user);
+            return "index";
+        }
     }
 
     @RequestMapping(value = "/usermessage.html", method = RequestMethod.GET)
@@ -103,8 +116,15 @@ public class UserController {
             modelMap.addAttribute("user", user);
             return "usermessage";
         }
+    }
+    @RequestMapping(value = "/submit_usermessage", method = RequestMethod.POST)
+    public String submit_usermessage(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap,String firstName,String lastName,String email,String password){
+        UserEntity user = userRepository.findByCookie(userCookie);
+        //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+        System.out.println("UserId:"+user.getFirstname());
+        modelMap.addAttribute("user", user);
+        return "index";
 
     }
-
 
 }

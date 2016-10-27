@@ -239,20 +239,20 @@ function checkUser(){
 	<div class="main-1">
 		<div class="container">
 			<div class="register">
-		  	  <form method = 'post' action = 'submit_account'id="formid" >
+		  	  <form method = 'post' action = 'submit_usermessage'id="formid" >
 				 <div class="register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>First Name<label>*</label></span>
-						<input name = "firstName" type="text" id="firstName">
+						<input name = "firstName" type="text" id="firstName" value=${user.firstname}>
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
 						<span>Last Name<label>*</label></span>
-						<input  name = "lastName" type="text"id="lastName">
+						<input  name = "lastName" type="text"id="lastName" value=${user.lastname}>
 					 </div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+						 <label class="checkbox">
 					   </a>
 					 </div>
 				     <div class="register-bottom-grid">
@@ -267,7 +267,7 @@ function checkUser(){
 							 </div>
 					 </div>
 				  <div class="clearfix"> </div>
-				  <div class="register-but">
+				 	 <div class="register-but">
 					  <input type="button" value="submit" onclick = "checkUser();">
 					  <div class="clearfix"> </div>
 				  </div>
