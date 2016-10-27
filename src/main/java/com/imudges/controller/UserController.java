@@ -89,6 +89,10 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping(value = "/usermessage.html", method = RequestMethod.GET)
+    public String usermessage(){
+        return "usermessage";
+    }
 
 
 }

@@ -250,17 +250,13 @@ function checkUser(){
 						<span>Last Name<label>*</label></span>
 						<input  name = "lastName" type="text"id="lastName">
 					 </div>
-					 <div class="wow fadeInRight" data-wow-delay="0.4s">
-						 <span>Email Address<label>*</label></span>
-						 <input name="email" type="text" id="email">
-					 </div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
 						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
 					   </a>
 					 </div>
 				     <div class="register-bottom-grid">
-						    <h3>LOGIN INFORMATION</h3>
+						    <h3>CHANGE PASSWORD</h3>
 							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 								<span>Password<label>*</label></span>
 								<input name="password" type="password" id="password">
