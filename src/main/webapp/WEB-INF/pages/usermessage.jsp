@@ -290,7 +290,7 @@ function checkUser(){
 					  <div class="clearfix"> </div>
 				  </div>
 				</form>
-				<form  action = "login" name="loginoutform">
+				<form method = 'get' action = "login" id="loginoutform">
 					<div class="clearfix"> </div>
 					<div class="register-but">
 						<input type="button" value="loginout" onclick = "delCookie();">
