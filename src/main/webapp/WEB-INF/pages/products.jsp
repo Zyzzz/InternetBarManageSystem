@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 	        </button>
-	        <h1 class="navbar-brand"><a  href="index.html">swim wear</a></h1>
+	        <h1 class="navbar-brand"><a  href="index.html">fashion wear</a></h1>
 	    </div>
 	    <!--/.navbar-header-->
 	

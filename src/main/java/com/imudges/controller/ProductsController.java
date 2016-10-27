@@ -36,5 +36,9 @@ public class ProductsController {
     public String single(){
         return "single";
     }
+    @RequestMapping(value = "/checkout.html", method =  RequestMethod.GET)
+    public String checkout(){
+        return "checkout";
+    }
 
 }

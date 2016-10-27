@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Swim Wear a E-Commerce online Shopping Category Flat Bootstrap Responsive Website Template| Single</title>
+<title>Fashion Wear a E-Commerce online Shopping Category Flat Bootstrap Responsive Website Template| Single</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/owl.carousel.css" rel="stylesheet">
@@ -77,7 +77,7 @@ $(window).load(function() {
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 	        </button>
-	        <h1 class="navbar-brand"><a  href="index.html">swim wear</a></h1>
+	        <h1 class="navbar-brand"><a  href="index.html">fashion wear</a></h1>
 	    </div>
 	    <!--/.navbar-header-->
 	

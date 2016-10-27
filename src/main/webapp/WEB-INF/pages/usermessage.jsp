@@ -113,7 +113,7 @@ function checkUser(){
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 	        </button>
-	        <h1 class="navbar-brand"><a  href="index.html">swim wear</a></h1>
+	        <h1 class="navbar-brand"><a  href="index.html">fashion wear</a></h1>
 	    </div>
 	    <!--/.navbar-header-->
 	
@@ -305,7 +305,7 @@ function checkUser(){
 <div class="subscribe">
 	 <div class="container">
 	 <div class="subscribe1">
-		 <h4>the latest from swim wear</h4>
+		 <h4>the latest from fashion wear</h4>
 		 </div>
 		 <div class="subscribe2">
 		 <form>
