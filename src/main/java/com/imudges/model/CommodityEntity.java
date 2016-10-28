@@ -11,7 +11,7 @@ import java.util.Collection;
 public class CommodityEntity {
     private int commodityid;
     private String commodityname;
-    private short price;
+    private double price;
     private String description;
     private ImageEntity imageByImageId;
     private double discount;
@@ -39,11 +39,11 @@ public class CommodityEntity {
 
     @Basic
     @Column(name = "price", nullable = false)
-    public short getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(short price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
