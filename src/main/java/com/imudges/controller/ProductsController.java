@@ -21,6 +21,8 @@ public class ProductsController {
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
+
+
             return "products";
         }else {
             // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
