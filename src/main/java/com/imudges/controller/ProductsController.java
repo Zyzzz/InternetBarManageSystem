@@ -1,6 +1,8 @@
 package com.imudges.controller;
 
+import com.imudges.model.CommodityEntity;
 import com.imudges.model.UserEntity;
+import com.imudges.repository.CommodityRepository;
 import com.imudges.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/10/26.
  */
@@ -16,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ProductsController {
     @Autowired
     UserRepository userRepository ;
+    @Autowired
+    CommodityRepository commodityRepository;
     @RequestMapping(value = "/products.html", method =  RequestMethod.GET)
     public String product(@CookieValue(value = "userCookie",required  = false) String userCookie, ModelMap modelMap){
         if(userCookie == null) {
@@ -29,6 +35,7 @@ public class ProductsController {
             UserEntity user = userRepository.findByCookie(userCookie);
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
+            List<CommodityEntity> commoditys = commodityRepository.findAll();
             modelMap.addAttribute("user", user);
             return "products";
         }
