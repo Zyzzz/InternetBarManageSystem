@@ -227,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 			<a href="single.html"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img src="images/m1.jpg" class="img-responsive" alt="">
+							<img src=${commodity.imageByImageId.img} class="img-responsive" alt="">
 							<div class="b-wrapper">
 							<h4 class="b-animate b-from-left  b-delay03">							
 							<button> + </button>
@@ -237,11 +237,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</a>					
 						<div class="product-info simpleCart_shelfItem">
 							<div class="product-info-cust prt_name">
-								<h4>Product #1</h4>								
-								<span class="item_price">$264.4</span>
+								<h4>${commodity.commodityname}</h4>
+								<span class="item_price">$${commodity.price * commodity.discount}</span>
 								<div class="ofr">
-								  <p class="pric1"><del>Rs 280</del></p>
-						          <p class="disc">[10% Off]</p>
+								  <p class="pric1"><del>Rs ${commodity.price}</del></p>
+						          <p class="disc">[${(1.0-commodity.discount)*10}% Off]</p>
 								</div>
 								<input type="text" class="item_quantity" value="1" />
 								<input type="button" class="item_add items" value="+">
