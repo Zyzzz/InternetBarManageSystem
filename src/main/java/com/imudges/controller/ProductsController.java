@@ -27,7 +27,8 @@ public class ProductsController {
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
-
+            List<CommodityEntity> commoditys = commodityRepository.findAll();
+            modelMap.addAttribute("commoditys",commoditys);
 
             return "products";
         }else {
