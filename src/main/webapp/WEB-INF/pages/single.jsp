@@ -253,7 +253,7 @@ $(window).load(function() {
 					</div>	
 					<div class="col-md-4 single-grid simpleCart_shelfItem">		
 						<h3>${commodity.commodityname}</h3>
-							<p>Condition  New With the boom of the swimwear market, there are so many places providing swimming costumes that you may not know where to look first. If you want to facilitate your search, drop in at our one-stop store, and you’ll be able to equip yourself properly for water activities.</p>
+							<p> ${commodity.description}</p>
 								<ul class="size">
 									<h3>Size</h3>
 										<li><a href="#">25</a></li>

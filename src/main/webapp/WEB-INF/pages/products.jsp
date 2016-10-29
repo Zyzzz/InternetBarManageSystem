@@ -239,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="product-info simpleCart_shelfItem">
 							<div class="product-info-cust prt_name">
 								<h4>${commodity.commodityname}</h4>
-								<span class="item_price">$${commodity.price * commodity.discount}</span>
+								<span class="item_price">$ <fmt:formatNumber type="number" value="${commodity.price * commodity.discount}" maxFractionDigits="1"/></span>
 								<div class="ofr">
 								  <p class="pric1"><del>Rs ${commodity.price}</del></p>
 						          <p class="disc">[
