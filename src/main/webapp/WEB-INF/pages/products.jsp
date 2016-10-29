@@ -237,10 +237,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="product-info simpleCart_shelfItem">
 							<div class="product-info-cust prt_name">
 								<h4>Product #1</h4>								
-								<span class="item_price">$187.95</span>
+								<span class="item_price">$264.4/span>
 								<div class="ofr">
 								  <p class="pric1"><del>Rs 280</del></p>
-						          <p class="disc">[12% Off]</p>
+						          <p class="disc">[10% Off]</p>
 								</div>
 								<input type="text" class="item_quantity" value="1" />
 								<input type="button" class="item_add items" value="+">

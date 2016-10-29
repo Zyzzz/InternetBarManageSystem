@@ -36,6 +36,7 @@ public class ProductsController {
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
             List<CommodityEntity> commoditys = commodityRepository.findAll();
+            modelMap.addAttribute("commoditys",commoditys);
             modelMap.addAttribute("user", user);
             return "products";
         }
