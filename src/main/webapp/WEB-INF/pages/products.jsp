@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
@@ -241,7 +242,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="item_price">$${commodity.price * commodity.discount}</span>
 								<div class="ofr">
 								  <p class="pric1"><del>Rs ${commodity.price}</del></p>
-						          <p class="disc">[${(1.0-commodity.discount)*10}% Off]</p>
+						          <p class="disc">[
+									  <fmt:formatNumber type="number" value="${(1-commodity.discount)*100}" maxFractionDigits="0"/>
+									  % Off]</p>
 								</div>
 								<input type="text" class="item_quantity" value="1" />
 								<input type="button" class="item_add items" value="+">
