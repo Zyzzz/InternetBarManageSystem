@@ -317,7 +317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$252.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -342,7 +342,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$252.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -367,7 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$252.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -392,7 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$200.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -417,7 +417,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$200.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -442,7 +442,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$200.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -466,7 +466,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$420.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
@@ -491,7 +491,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Amour Women’s Amour...</p>
 						<div class="galry">
 						<div class="prices">
-						<h5 class="item_price">$95.00</h5>
+						<h5 class="item_price">$420.00</h5>
 						</div>
 					<div class="rating">
 									<span>☆</span>
