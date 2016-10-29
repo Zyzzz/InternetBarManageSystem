@@ -14,6 +14,7 @@ public class ShoppingcarEntity {
     private String commodityidlist;
     private String timelist;
     private Double price;
+    private String sizes;
 
     @Id
     @Column(name = "shoppingcarid", nullable = false)
@@ -66,13 +67,24 @@ public class ShoppingcarEntity {
     }
 
     @Basic
-    @Column(name = " price", nullable = true, precision = 0)
+    @Column(name = "price", nullable = true, precision = 0)
     public Double getPrice() {
         return price;
     }
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+
+    @Basic
+    @Column(name = "sizes", nullable = true, precision = 0)
+    public String getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(String sizes) {
+        this.sizes = sizes;
     }
 
     @Override

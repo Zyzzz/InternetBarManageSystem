@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
@@ -273,7 +274,7 @@ $(window).load(function() {
 								</ul>
 							<div class="galry">
 								<div class="prices">
-									<h5 class="item_price">$95.00</h5>
+									<h5 class="item_price">$ <fmt:formatNumber type="number" value="${commodity.price * commodity.discount}" maxFractionDigits="1"/></h5>
 								</div>
 								<div class="rating">
 									<span>☆</span>
