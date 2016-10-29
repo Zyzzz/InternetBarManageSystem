@@ -225,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="col-md-9 product-model-sec">
 
 			 <c:forEach items="${commoditys}" var="commodity">
-			 			<a href="single.html"><div class="product-grid">
+			 			<a href="single.html?commodityid=${commodity.commodityid}"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
 							<img src=${commodity.imageByImageId.img} class="img-responsive" alt="">

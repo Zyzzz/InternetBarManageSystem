@@ -43,7 +43,9 @@ public class ProductsController {
     }
 
     @RequestMapping(value = "/single.html", method =  RequestMethod.GET)
-    public String single(){
+    public String single(int commodityid, ModelMap modelMap){
+        CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
+        modelMap.addAttribute("commodity",commodityEntity);
         return "single";
     }
 

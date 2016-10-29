@@ -48,7 +48,7 @@ public class CommodityEntity {
     }
 
     @Basic
-    @Column(name = "description", nullable = false, length = 255)
+    @Column(name = "description", nullable = false, length = 500)
     public String getDescription() {
         return description;
     }
