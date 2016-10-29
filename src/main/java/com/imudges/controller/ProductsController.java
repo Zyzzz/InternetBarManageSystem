@@ -29,7 +29,6 @@ public class ProductsController {
             modelMap.addAttribute("user", user);
             List<CommodityEntity> commoditys = commodityRepository.findAll();
             modelMap.addAttribute("commoditys",commoditys);
-
             return "products";
         }else {
             // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
@@ -46,10 +45,6 @@ public class ProductsController {
     @RequestMapping(value = "/single.html", method =  RequestMethod.GET)
     public String single(){
         return "single";
-    }
-    @RequestMapping(value = "/checkout.html", method =  RequestMethod.GET)
-    public String checkout(){
-        return "checkout";
     }
 
 }
