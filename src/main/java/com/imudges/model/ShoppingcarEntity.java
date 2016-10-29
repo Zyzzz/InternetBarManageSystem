@@ -101,7 +101,7 @@ public class ShoppingcarEntity {
             return false;
         if (timelist != null ? !timelist.equals(that.timelist) : that.timelist != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
-
+        if(sizes != null ? !sizes.equals(that.sizes) : that.price != null) return  false;
         return true;
     }
 
@@ -113,6 +113,7 @@ public class ShoppingcarEntity {
         result = 31 * result + (commodityidlist != null ? commodityidlist.hashCode() : 0);
         result = 31 * result + (timelist != null ? timelist.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (sizes != null ? sizes.hashCode() : 0);
         return result;
     }
 }

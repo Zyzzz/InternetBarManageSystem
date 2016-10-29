@@ -307,7 +307,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Featured products</h3>
 			<div class="gallery-grids">
 				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g1.png" class="img-responsive" alt=""/>
+					<a href="products.html"><img src="images/m12.jpg" class="img-responsive" alt=""/>
 					<div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
@@ -357,7 +357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 					<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g3.png" class="img-responsive" alt=""/>
+						<a href="products.html"><img src="images/m13.jpg" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
@@ -382,7 +382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g4.png" class="img-responsive" alt=""/>
+						<a href="products.html"><img src="images/m2.jpg" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
@@ -407,7 +407,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 					<div class="col-md-3 gallery-grid ">
-						<a href="products.html"><img src="images/g5.jpg" class="img-responsive" alt=""/>
+						<a href="products.html"><img src="images/m22.jpg" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
@@ -432,7 +432,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 					<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g6.jpg" class="img-responsive" alt=""/>
+						<a href="products.html"><img src="images/m23.jpg" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
@@ -457,7 +457,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 					<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g7.jpg" class="img-responsive" alt=""/><div class="gallery-info">
+						<a href="products.html"><img src="images/m3.jpg" class="img-responsive" alt=""/><div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
 					</div>
@@ -481,7 +481,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="col-md-3 gallery-grid">
-						<a href="products.html"><img src="images/g8.jpg" class="img-responsive" alt=""/>
+						<a href="products.html"><img src="images/m32.jpg" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 					<div class="quick">
 					<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
