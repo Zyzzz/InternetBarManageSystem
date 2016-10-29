@@ -28,6 +28,10 @@ public class ProductsController {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
             List<CommodityEntity> commoditys = commodityRepository.findAll();
+            for(CommodityEntity commodityEntity : commoditys) {
+                String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
+                commodityEntity.getImageByImageId().setImg(StrArray[0]);
+            }
             modelMap.addAttribute("commoditys",commoditys);
             return "products";
         }else {
@@ -36,6 +40,10 @@ public class ProductsController {
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
             List<CommodityEntity> commoditys = commodityRepository.findAll();
+            for(CommodityEntity commodityEntity : commoditys) {
+                String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
+                commodityEntity.getImageByImageId().setImg(StrArray[0]);
+            }
             modelMap.addAttribute("commoditys",commoditys);
             modelMap.addAttribute("user", user);
             return "products";

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
@@ -241,20 +242,17 @@ $(window).load(function() {
 					<div class="col-md-4 single-grid">		
 						<div class="flexslider">
 							<ul class="slides">
-								<li data-thumb="images/si.jpg">
-									<div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+								<c:set value="${ fn:split(commodity.imageByImageId.img, ';') }" var="imgs" />
+								<c:forEach items="${imgs}" var="img">
+								<li data-thumb=${img}>
+									<div class="thumb-image"> <img src=${img} data-imagezoom="true" class="img-responsive"> </div>
 								</li>
-								<li data-thumb="images/si1.jpg">
-									 <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-								</li>
-								<li data-thumb="images/si2.jpg">
-								   <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-								</li> 
+								</c:forEach>
 							</ul>
 						</div>
 					</div>	
 					<div class="col-md-4 single-grid simpleCart_shelfItem">		
-						<h3>Obey Wasted Years Camo Zip Bandeau Bikini Top</h3>
+						<h3>${commodity.commodityname}</h3>
 							<p>Condition  New With the boom of the swimwear market, there are so many places providing swimming costumes that you may not know where to look first. If you want to facilitate your search, drop in at our one-stop store, and you’ll be able to equip yourself properly for water activities.</p>
 								<ul class="size">
 									<h3>Size</h3>
