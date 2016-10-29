@@ -221,9 +221,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="product-model">	 
 	 <div class="container">
 		<h2>Our Products</h2>
-
 		 <div class="col-md-9 product-model-sec">
-					 <a href="single.html"><div class="product-grid">
+
+			 <c:forEach items="${commoditys}" var="commodity">
+			 			<a href="single.html"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
 							<img src="images/m1.jpg" class="img-responsive" alt="">
@@ -237,7 +238,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="product-info simpleCart_shelfItem">
 							<div class="product-info-cust prt_name">
 								<h4>Product #1</h4>								
-								<span class="item_price">$264.4/span>
+								<span class="item_price">$264.4</span>
 								<div class="ofr">
 								  <p class="pric1"><del>Rs 280</del></p>
 						          <p class="disc">[10% Off]</p>
@@ -248,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>												
 						</div>
 					</div>
-
+		 </c:forEach>
 					<a href="single.html"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -374,6 +375,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>						
 						</div>
 					</div>
+
+
+
+
 					<a href="single.html"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -398,6 +403,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>						
 						</div>
 					</div>
+
 					<a href="single.html"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -422,6 +428,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>						
 						</div>
 					</div>
+
+
 					<a href="single.html"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -443,10 +451,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<input type="text" class="item_quantity" value="1" />
 								<input type="button" class="item_add items" value="+">
 								<div class="clearfix"> </div>
-							</div>						
+							</div>
 						</div>
 					</div>
-				</div>	
+				</div>
+
 			<div class="rsidebar span_1_of_left">
 				 <section  class="sky-form">
 					 <div class="product_right">
