@@ -107,9 +107,9 @@ public class ProductsController {
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
             modelMap.addAttribute("user", user);
+            Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String data = format.format(new Date());
             if(cartCookie==null){
-                Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                String data = format.format(new Date());
                 String cookieencrypt = SHA256Encrypt(user.getUserid()+commodityid+data);
                 Cookie cookie = new Cookie("cartCookie",cookieencrypt);
                 ShoppingcarEntity shoppingcarEntity = new ShoppingcarEntity();
@@ -117,14 +117,21 @@ public class ProductsController {
                 shoppingcarEntity.setCookie(cookieencrypt);
                 shoppingcarEntity.setCommodityidlist(""+commodityid);
                 shoppingcarEntity.setTimelist(data);
-                shoppingcarEntity.setPrice(commodityEntity.getPrice());
+                shoppingcarEntity.setPrice(commodityEntity.getPrice()*number);
                 shoppingcarEntity.setSizes(""+size);
                 shoppingcarEntity.setNumbers(""+number);
                 carRepository.saveAndFlush(shoppingcarEntity);
                 cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
+                modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
                 response.addCookie(cookie);
                 return "single";
             }else {
+                ShoppingcarEntity shoppingcarEntity = carRepository.findByCookie(cartCookie);
+                shoppingcarEntity.setSizes(shoppingcarEntity.getSizes()+";"+size);
+                shoppingcarEntity.setTimelist(shoppingcarEntity.getTimelist()+";"+data);
+                shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*number));
+                shoppingcarEntity.setNumbers(shoppingcarEntity.getNumbers()+";"+number);
+                modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
                 return "single";
             }
         }
