@@ -65,8 +65,6 @@ public class ProductsController {
 
     @RequestMapping(value = "/single.html", method =  RequestMethod.GET)
     public String single(@CookieValue(value = "userCookie",required  = false) String userCookie,int commodityid, ModelMap modelMap){
-
-
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
@@ -81,9 +79,26 @@ public class ProductsController {
             modelMap.addAttribute("commodity",commodityEntity);
             modelMap.addAttribute("user", user);
             return "single";
-
-
         }
     }
+    @RequestMapping(value = "/addToCart", method =  RequestMethod.GET)
+    public String addToCart(@CookieValue(value = "userCookie",required  = false) String userCookie,int commodityid,int number,int size, ModelMap modelMap){
+        if(userCookie == null) {
+            UserEntity user = new UserEntity();
+            modelMap.addAttribute("user", user);
+            CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
+            modelMap.addAttribute("commodity",commodityEntity);
+            return "single";
+        }else {
+            // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
+            UserEntity user = userRepository.findByCookie(userCookie);
+            //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+            CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
+            modelMap.addAttribute("commodity",commodityEntity);
+            modelMap.addAttribute("user", user);
+            return "single";
+        }
+    }
+
 
 }
