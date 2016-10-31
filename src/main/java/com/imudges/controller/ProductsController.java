@@ -37,16 +37,29 @@ public class ProductsController {
         }else {
             // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
             UserEntity user = userRepository.findByCookie(userCookie);
-            //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
-            System.out.println("UserId:"+user.getFirstname());
-            List<CommodityEntity> commoditys = commodityRepository.findAll();
-            for(CommodityEntity commodityEntity : commoditys) {
-                String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
-                commodityEntity.getImageByImageId().setImg(StrArray[0]);
+            if(user != null){
+                //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
+                System.out.println("UserId:"+user.getFirstname());
+                List<CommodityEntity> commoditys = commodityRepository.findAll();
+                for(CommodityEntity commodityEntity : commoditys) {
+                    String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
+                    commodityEntity.getImageByImageId().setImg(StrArray[0]);
+                }
+                modelMap.addAttribute("commoditys",commoditys);
+                modelMap.addAttribute("user", user);
+                return "products";
+            }else {
+                user = new UserEntity();
+                modelMap.addAttribute("user", user);
+                List<CommodityEntity> commoditys = commodityRepository.findAll();
+                for(CommodityEntity commodityEntity : commoditys) {
+                    String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
+                    commodityEntity.getImageByImageId().setImg(StrArray[0]);
+                }
+                modelMap.addAttribute("commoditys",commoditys);
+                return "products";
             }
-            modelMap.addAttribute("commoditys",commoditys);
-            modelMap.addAttribute("user", user);
-            return "products";
+
         }
     }
 

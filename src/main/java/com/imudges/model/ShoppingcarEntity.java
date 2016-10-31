@@ -15,7 +15,7 @@ public class ShoppingcarEntity {
     private String timelist;
     private Double price;
     private String sizes;
-
+    private String numbers;
     @Id
     @Column(name = "shoppingcarid", nullable = false)
     public int getShoppingcarid() {
@@ -78,7 +78,7 @@ public class ShoppingcarEntity {
 
 
     @Basic
-    @Column(name = "sizes", nullable = true, precision = 0)
+    @Column(name = "sizes", nullable = false, length = 255)
     public String getSizes() {
         return sizes;
     }
@@ -86,6 +86,18 @@ public class ShoppingcarEntity {
     public void setSizes(String sizes) {
         this.sizes = sizes;
     }
+
+
+    @Basic
+    @Column(name = "numbers", nullable = false, length = 255)
+    public String getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(String numbers) {
+        this.numbers = numbers;
+    }
+
 
     @Override
     public boolean equals(Object o) {
