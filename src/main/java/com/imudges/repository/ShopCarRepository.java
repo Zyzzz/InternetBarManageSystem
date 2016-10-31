@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShopCarRepository  extends JpaRepository<ShoppingcarEntity,Integer> {
     public ShoppingcarEntity findByCookie(String cookie);
+    public ShoppingcarEntity findByUserid(int userid);
 }
