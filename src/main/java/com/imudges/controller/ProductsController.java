@@ -102,6 +102,7 @@ public class ProductsController {
             modelMap.addAttribute("message","please login");
             return "single";
         }else {
+            modelMap.addAttribute("message","");
             UserEntity user = userRepository.findByCookie(userCookie);
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);

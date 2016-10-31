@@ -269,7 +269,14 @@ $(window).load(function() {
 							</ul>
 						</div>
 					</div>	
-					<div class="col-md-4 single-grid simpleCart_shelfItem">		
+					<div class="col-md-4 single-grid simpleCart_shelfItem">
+						<c:choose>
+							<c:when test="${empty message}">
+							</c:when>
+							<c:otherwise>
+								<h3  style="color: #FF0000">${message}</h3>
+							</c:otherwise>
+						</c:choose>
 						<h3>${commodity.commodityname}</h3>
 							<p> ${commodity.description}</p>
 								<ul class="size">
