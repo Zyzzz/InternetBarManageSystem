@@ -1,8 +1,10 @@
 package com.imudges.controller;
 
 import com.imudges.model.CommodityEntity;
+import com.imudges.model.ShoppingcarEntity;
 import com.imudges.model.UserEntity;
 import com.imudges.repository.CommodityRepository;
+import com.imudges.repository.ShopCarRepository;
 import com.imudges.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,8 @@ public class ProductsController {
     UserRepository userRepository ;
     @Autowired
     CommodityRepository commodityRepository;
+    @Autowired
+    ShopCarRepository carRepository;
     @RequestMapping(value = "/products.html", method =  RequestMethod.GET)
     public String product(@CookieValue(value = "userCookie",required  = false) String userCookie, ModelMap modelMap){
         if(userCookie == null) {
@@ -108,15 +112,21 @@ public class ProductsController {
                 String data = format.format(new Date());
                 String cookieencrypt = SHA256Encrypt(user.getUserid()+commodityid+data);
                 Cookie cookie = new Cookie("cartCookie",cookieencrypt);
+                ShoppingcarEntity shoppingcarEntity = new ShoppingcarEntity();
+                shoppingcarEntity.setUserid(user.getUserid());
+                shoppingcarEntity.setCookie(cookieencrypt);
+                shoppingcarEntity.setCommodityidlist(""+commodityid);
+                shoppingcarEntity.setTimelist(data);
+                shoppingcarEntity.setPrice(commodityEntity.getPrice());
+                shoppingcarEntity.setSizes(""+size);
+                shoppingcarEntity.setNumbers(""+number);
+                carRepository.saveAndFlush(shoppingcarEntity);
                 cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
                 response.addCookie(cookie);
                 return "single";
             }else {
                 return "single";
             }
-
         }
     }
-
-
 }
