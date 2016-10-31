@@ -34,6 +34,15 @@ $(window).load(function() {
     controlNav: "thumbnails"
   });
 });
+	var size = 25 ;
+	function setSize(inputSize){
+		size = inputSize;
+	}
+
+	function getInput(){
+		var a = document.getElementById("quantity").value;
+		document.getElementById("links").href="addToCart?commodityid=${commodity.commodityid}&&number="+a+"&&size="+size;
+	}
 </script>
 
 
@@ -265,15 +274,15 @@ $(window).load(function() {
 							<p> ${commodity.description}</p>
 								<ul class="size">
 									<h3>Size</h3>
-										<li><a href="#">25</a></li>
-										<li><a href="#">26</a></li>
-										<li><a href="#">27</a></li>
-										<li><a href="#">28</a></li>
-										<li><a href="#">29</a></li>
-										<li><a href="#">30</a></li>
-										<li><a href="#">31</a></li>
-										<li><a href="#">32</a></li>
-										<li><a href="#">33</a></li>
+										<li><a href="#" onclick="setSize(25)">25</a></li>
+										<li><a href="#" onclick="setSize(26)">26</a></li>
+										<li><a href="#" onclick="setSize(27)">27</a></li>
+										<li><a href="#" onclick="setSize(28)">28</a></li>
+										<li><a href="#" onclick="setSize(29)">29</a></li>
+										<li><a href="#" onclick="setSize(30)">30</a></li>
+										<li><a href="#" onclick="setSize(31)">31</a></li>
+										<li><a href="#" onclick="setSize(32)">32</a></li>
+										<li><a href="#" onclick="setSize(33)">33</a></li>
 								</ul>
 								<ul class="size">
 									<h3>Length</h3>
@@ -295,7 +304,7 @@ $(window).load(function() {
 							</div>
 								<p class="qty"> Qty :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
 							<div class="btn_form">
-								<a href="#" class="add-cart item_add">ADD TO CART</a>	
+								<a href="" id ="links" class="add-cart item_add" onclick="getInput();">ADD TO CART</a>
 							</div>
 							<div class="tag">
 								<p>Category : <a href="#"> Bikinis </a></p>
