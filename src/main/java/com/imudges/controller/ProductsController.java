@@ -99,7 +99,7 @@ public class ProductsController {
             modelMap.addAttribute("user", user);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
-            modelMap.addAttribute("message","please login");
+            modelMap.addAttribute("message","Please Login");
             return "single";
         }else {
             modelMap.addAttribute("message","");
@@ -132,6 +132,7 @@ public class ProductsController {
                 shoppingcarEntity.setTimelist(shoppingcarEntity.getTimelist()+";"+data);
                 shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*number));
                 shoppingcarEntity.setNumbers(shoppingcarEntity.getNumbers()+";"+number);
+                carRepository.saveAndFlush(shoppingcarEntity);
                 modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
                 return "single";
             }
