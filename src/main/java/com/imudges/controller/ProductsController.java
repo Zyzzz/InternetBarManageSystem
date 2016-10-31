@@ -11,7 +11,14 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import static com.imudges.utils.SHA256Test.SHA256Encrypt;
 
 /**
  * Created by Administrator on 2016/10/26.
@@ -82,21 +89,32 @@ public class ProductsController {
         }
     }
     @RequestMapping(value = "/addToCart", method =  RequestMethod.GET)
-    public String addToCart(@CookieValue(value = "userCookie",required  = false) String userCookie,int commodityid,int number,int size, ModelMap modelMap){
+    public String addToCart(@CookieValue(value = "cartCookie",required  = false) String cartCookie, @CookieValue(value = "userCookie",required  = false) String userCookie, HttpServletResponse response, int commodityid, int number, int size, ModelMap modelMap){
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
+            modelMap.addAttribute("message","please login");
             return "single";
         }else {
-            // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
             UserEntity user = userRepository.findByCookie(userCookie);
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
             modelMap.addAttribute("user", user);
-            return "single";
+            if(cartCookie==null){
+                Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String data = format.format(new Date());
+                String cookieencrypt = SHA256Encrypt(user.getUserid()+commodityid+data);
+                Cookie cookie = new Cookie("cartCookie",cookieencrypt);
+                cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
+                response.addCookie(cookie);
+                return "single";
+            }else {
+                return "single";
+            }
+
         }
     }
 
