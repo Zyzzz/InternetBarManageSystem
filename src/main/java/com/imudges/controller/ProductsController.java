@@ -123,6 +123,7 @@ public class ProductsController {
                 shoppingcarEntity.setNumbers(""+number);
                 carRepository.saveAndFlush(shoppingcarEntity);
                 cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
+                modelMap.addAttribute("price",shoppingcarEntity.getPrice());
                 modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
                 response.addCookie(cookie);
                 return "single";
@@ -133,6 +134,7 @@ public class ProductsController {
                 shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*number));
                 shoppingcarEntity.setNumbers(shoppingcarEntity.getNumbers()+";"+number);
                 carRepository.saveAndFlush(shoppingcarEntity);
+                modelMap.addAttribute("price",shoppingcarEntity.getPrice());
                 modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
                 return "single";
             }
