@@ -43,6 +43,7 @@ public class ProductsController {
                 String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
                 commodityEntity.getImageByImageId().setImg(StrArray[0]);
             }
+            modelMap.addAttribute("price","0.00");
             modelMap.addAttribute("commoditys",commoditys);
             return "products";
         }else {
@@ -57,6 +58,7 @@ public class ProductsController {
                     commodityEntity.getImageByImageId().setImg(StrArray[0]);
                 }
                 modelMap.addAttribute("commoditys",commoditys);
+                modelMap.addAttribute("price","0.00");
                 modelMap.addAttribute("user", user);
                 return "products";
             }else {
@@ -81,6 +83,7 @@ public class ProductsController {
             modelMap.addAttribute("user", user);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
+            modelMap.addAttribute("price","0.00");
             return "single";
         }else {
             // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
@@ -99,6 +102,7 @@ public class ProductsController {
             modelMap.addAttribute("user", user);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
+            modelMap.addAttribute("price","0.00");
             modelMap.addAttribute("message","Please Login");
             return "single";
         }else {
