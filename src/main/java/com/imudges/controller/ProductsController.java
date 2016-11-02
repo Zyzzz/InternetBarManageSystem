@@ -58,7 +58,13 @@ public class ProductsController {
                     commodityEntity.getImageByImageId().setImg(StrArray[0]);
                 }
                 modelMap.addAttribute("commoditys",commoditys);
-                modelMap.addAttribute("price","0.00");
+                ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+                if(shoppingcarEntity==null)
+                    modelMap.addAttribute("price","0.00");
+                else
+                    modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
+                modelMap.addAttribute("commoditys",commoditys);
+
                 modelMap.addAttribute("user", user);
                 return "products";
             }else {
@@ -69,12 +75,7 @@ public class ProductsController {
                     String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
                     commodityEntity.getImageByImageId().setImg(StrArray[0]);
                 }
-                ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
-                if(shoppingcarEntity==null)
-                    modelMap.addAttribute("price","0.00");
-                else
-                    modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
-                modelMap.addAttribute("commoditys",commoditys);
+                modelMap.addAttribute("price","0.00");
                 return "products";
             }
 
