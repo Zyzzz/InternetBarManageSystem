@@ -30,7 +30,7 @@ public class ProductsController {
     @Autowired
     UserRepository userRepository ;
     @Autowired
-    CommodityRepository commodityRepository;
+     CommodityRepository commodityRepository;
     @Autowired
     ShopCarRepository carRepository;
     @RequestMapping(value = "/products.html", method =  RequestMethod.GET)
@@ -69,6 +69,11 @@ public class ProductsController {
                     String[] StrArray = commodityEntity.getImageByImageId().getImg().split(";");
                     commodityEntity.getImageByImageId().setImg(StrArray[0]);
                 }
+                ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+                if(shoppingcarEntity==null)
+                    modelMap.addAttribute("price","0.00");
+                else
+                    modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
                 modelMap.addAttribute("commoditys",commoditys);
                 return "products";
             }
@@ -91,6 +96,11 @@ public class ProductsController {
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
+            ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+            if(shoppingcarEntity==null)
+                modelMap.addAttribute("price","0.00");
+            else
+                modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
             modelMap.addAttribute("user", user);
             return "single";
         }
@@ -144,4 +154,8 @@ public class ProductsController {
             }
         }
     }
+
+
+
+
 }

@@ -1,6 +1,8 @@
 package com.imudges.controller;
 
+import com.imudges.model.ShoppingcarEntity;
 import com.imudges.model.UserEntity;
+import com.imudges.repository.ShopCarRepository;
 import com.imudges.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,8 @@ import static com.imudges.utils.SHA256Test.SHA256Encrypt;
 public class UserController {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ShopCarRepository carRepository;
     @RequestMapping(value = "/index.html", method =  RequestMethod.GET)
     public String index(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap) {
         if(userCookie == null) {
@@ -38,6 +42,11 @@ public class UserController {
             UserEntity user = userRepository.findByCookie(userCookie);
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
+            ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+            if(shoppingcarEntity==null)
+                modelMap.addAttribute("price","0.00");
+            else
+                modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
             modelMap.addAttribute("user", user);
             return "index";
         }
@@ -69,6 +78,11 @@ public class UserController {
             cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
             response.addCookie(cookie);
             modelMap.addAttribute("user", user);
+            ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+            if(shoppingcarEntity==null)
+                modelMap.addAttribute("price","0.00");
+            else
+                modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
             return "index";
         }
         //return "";
@@ -89,7 +103,6 @@ public class UserController {
         user.setPassword(password);
         if(!checkbox) {
             userRepository.save(user);
-
             return "login";
         }else {
             Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -100,8 +113,12 @@ public class UserController {
             userRepository.saveAndFlush(user);
             cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
             response.addCookie(cookie);
-
             modelMap.addAttribute("user", user);
+            ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+            if(shoppingcarEntity==null)
+                modelMap.addAttribute("price","0.00");
+            else
+                modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
             return "index";
         }
     }
@@ -111,6 +128,7 @@ public class UserController {
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
+            modelMap.addAttribute("price","0.00");
             return "usermessage";
         }else {
             // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
@@ -118,6 +136,11 @@ public class UserController {
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
             modelMap.addAttribute("user", user);
+            ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+            if(shoppingcarEntity==null)
+                modelMap.addAttribute("price","0.00");
+            else
+                modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
             return "usermessage";
         }
     }
@@ -130,9 +153,13 @@ public class UserController {
         userRepository.saveAndFlush(user);
         //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
         System.out.println("UserId:"+user.getFirstname());
+        ShoppingcarEntity shoppingcarEntity = carRepository.findByUserid(user.getUserid());
+        if(shoppingcarEntity==null)
+            modelMap.addAttribute("price","0.00");
+        else
+            modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
         modelMap.addAttribute("user", user);
         return "index";
-
     }
 
 }
