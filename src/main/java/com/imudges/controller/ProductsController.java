@@ -78,7 +78,6 @@ public class ProductsController {
                 modelMap.addAttribute("price","0.00");
                 return "products";
             }
-
         }
     }
 
