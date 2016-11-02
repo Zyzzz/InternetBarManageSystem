@@ -1,6 +1,8 @@
 package com.imudges.controller;
 
+import com.imudges.model.ShoppingcarEntity;
 import com.imudges.model.UserEntity;
+import com.imudges.repository.CommodityRepository;
 import com.imudges.repository.ShopCarRepository;
 import com.imudges.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ public class ShopCarController {
     UserRepository userRepository;
     @Autowired
     ShopCarRepository shopCarRepository;
+    @Autowired
+    CommodityRepository commodityRepository;
     @RequestMapping(value = "/checkout.html", method =  RequestMethod.GET)
     public String checkout(@CookieValue(value = "cartCookie",required  = false) String cartCookie, @CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap){
         if(userCookie == null) {
@@ -32,6 +36,11 @@ public class ShopCarController {
             //UserEntity user  = (UserEntity) JsonTool.jsonStringOToObj(userCookie,UserEntity.class);
             System.out.println("UserId:"+user.getFirstname());
             modelMap.addAttribute("user", user);
+            ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(user.getUserid());
+            if(shoppingcarEntity==null)
+                modelMap.addAttribute("price","0.00");
+            else
+                modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
            // modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
             return "checkout";
         }

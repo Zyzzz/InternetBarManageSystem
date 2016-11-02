@@ -30,7 +30,7 @@ public class ProductsController {
     @Autowired
     UserRepository userRepository ;
     @Autowired
-     CommodityRepository commodityRepository;
+    CommodityRepository commodityRepository;
     @Autowired
     ShopCarRepository carRepository;
     @RequestMapping(value = "/products.html", method =  RequestMethod.GET)
@@ -154,8 +154,4 @@ public class ProductsController {
             }
         }
     }
-
-
-
-
 }
