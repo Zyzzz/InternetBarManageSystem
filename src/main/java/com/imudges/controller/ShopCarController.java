@@ -44,8 +44,6 @@ public class ShopCarController {
            // modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
             return "checkout";
         }
-
-
     }
 
 }

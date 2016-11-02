@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</li>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
-								 <span class="simpleCart_total"> $${price} </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
+								 <span class="simpleCart_total"> $${price} </span>
 							</a>	
 							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>

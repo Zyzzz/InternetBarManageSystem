@@ -45,9 +45,13 @@ function delCookie()
 {
 	var exp = new Date();
 	exp.setTime(exp.getTime() - 1);
-	var cval=getCookie("userCookie");
+	var uval=getCookie("userCookie");
+	var cval=getCookie("cartCookie");
+	if(uval!=null)
+		document.cookie= "userCookie" + "="+uval+";expires="+exp.toGMTString();
 	if(cval!=null)
-		document.cookie= "userCookie" + "="+cval+";expires="+exp.toGMTString();
+		document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
+
 	document.getElementById("loginoutform").submit();
 }
 function checkUser(){
@@ -91,7 +95,7 @@ function checkUser(){
 					<li class="text"><a href="login">login</a>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
-								 <span class="simpleCart_total"> $${price}</span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
+								 <span class="simpleCart_total"> $${price}</span>
 							</a>	
 							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>
