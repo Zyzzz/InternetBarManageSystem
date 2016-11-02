@@ -24,6 +24,7 @@ public class ShopCarController {
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
+            modelMap.addAttribute("price","0.00");
             return "checkout";
         }else {
             // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));

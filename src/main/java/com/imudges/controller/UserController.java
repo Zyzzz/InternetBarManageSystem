@@ -30,6 +30,7 @@ public class UserController {
     public String index(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap) {
         if(userCookie == null) {
             UserEntity user = new UserEntity();
+            modelMap.addAttribute("price","0.00");
             modelMap.addAttribute("user", user);
             return "index";
         }else {
@@ -54,6 +55,7 @@ public class UserController {
         if (user==null) {
             String message = " Email or password mistake";
             modelMap.addAttribute("message", message);
+            modelMap.addAttribute("price","0.00");
             return "login";
         }
         else{
@@ -87,6 +89,7 @@ public class UserController {
         user.setPassword(password);
         if(!checkbox) {
             userRepository.save(user);
+
             return "login";
         }else {
             Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
