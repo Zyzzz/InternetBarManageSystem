@@ -63,7 +63,6 @@ public class ShopCarController {
                    shoppCartEntry.setNumber(Numbers[i]);
                    shoppCartEntries.add(shoppCartEntry);
                 }
-                modelMap.addAttribute("price","0.00");
                 modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
                 modelMap.addAttribute("number",Commodityids.length);
             }

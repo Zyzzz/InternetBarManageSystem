@@ -142,6 +142,7 @@ public class ProductsController {
                 return "single";
             }else {
                 ShoppingcarEntity shoppingcarEntity = carRepository.findByCookie(cartCookie);
+                shoppingcarEntity.setCommodityidlist(shoppingcarEntity.getCommodityidlist()+";"+commodityid);
                 shoppingcarEntity.setSizes(shoppingcarEntity.getSizes()+";"+size);
                 shoppingcarEntity.setTimelist(shoppingcarEntity.getTimelist()+";"+data);
                 shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*commodityEntity.getDiscount())*number);
