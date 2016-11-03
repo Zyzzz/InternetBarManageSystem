@@ -93,7 +93,7 @@ function delCookie()
 						</c:choose>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
-								 <span class="simpleCart_total">${price} </span>
+								 <span class="simpleCart_total">$${price} </span>
 							</a>	
 							<p></p>
 							<div class="clearfix"> </div>

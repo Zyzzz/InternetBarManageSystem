@@ -131,7 +131,7 @@ public class ProductsController {
                 shoppingcarEntity.setCookie(cookieencrypt);
                 shoppingcarEntity.setCommodityidlist(""+commodityid);
                 shoppingcarEntity.setTimelist(data);
-                shoppingcarEntity.setPrice(commodityEntity.getPrice()*number);
+                shoppingcarEntity.setPrice((commodityEntity.getPrice()*commodityEntity.getDiscount())*number);
                 shoppingcarEntity.setSizes(""+size);
                 shoppingcarEntity.setNumbers(""+number);
                 carRepository.saveAndFlush(shoppingcarEntity);
@@ -144,7 +144,7 @@ public class ProductsController {
                 ShoppingcarEntity shoppingcarEntity = carRepository.findByCookie(cartCookie);
                 shoppingcarEntity.setSizes(shoppingcarEntity.getSizes()+";"+size);
                 shoppingcarEntity.setTimelist(shoppingcarEntity.getTimelist()+";"+data);
-                shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*number));
+                shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*commodityEntity.getDiscount())*number);
                 shoppingcarEntity.setNumbers(shoppingcarEntity.getNumbers()+";"+number);
                 carRepository.saveAndFlush(shoppingcarEntity);
                 modelMap.addAttribute("price",shoppingcarEntity.getPrice());
