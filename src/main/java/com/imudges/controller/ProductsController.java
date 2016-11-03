@@ -141,16 +141,36 @@ public class ProductsController {
                 response.addCookie(cookie);
                 return "single";
             }else {
+
                 ShoppingcarEntity shoppingcarEntity = carRepository.findByCookie(cartCookie);
-                shoppingcarEntity.setCommodityidlist(shoppingcarEntity.getCommodityidlist()+";"+commodityid);
-                shoppingcarEntity.setSizes(shoppingcarEntity.getSizes()+";"+size);
-                shoppingcarEntity.setTimelist(shoppingcarEntity.getTimelist()+";"+data);
-                shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*commodityEntity.getDiscount())*number);
-                shoppingcarEntity.setNumbers(shoppingcarEntity.getNumbers()+";"+number);
-                carRepository.saveAndFlush(shoppingcarEntity);
-                modelMap.addAttribute("price",shoppingcarEntity.getPrice());
-                modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
-                return "single";
+                if(shoppingcarEntity != null){
+                    shoppingcarEntity.setCommodityidlist(shoppingcarEntity.getCommodityidlist()+";"+commodityid);
+                    shoppingcarEntity.setSizes(shoppingcarEntity.getSizes()+";"+size);
+                    shoppingcarEntity.setTimelist(shoppingcarEntity.getTimelist()+";"+data);
+                    shoppingcarEntity.setPrice(shoppingcarEntity.getPrice()+(commodityEntity.getPrice()*commodityEntity.getDiscount())*number);
+                    shoppingcarEntity.setNumbers(shoppingcarEntity.getNumbers()+";"+number);
+                    carRepository.saveAndFlush(shoppingcarEntity);
+                    modelMap.addAttribute("price",shoppingcarEntity.getPrice());
+                    modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
+                    return "single";
+                }else {
+                    String cookieencrypt = SHA256Encrypt(user.getUserid()+commodityid+data);
+                    Cookie cookie = new Cookie("cartCookie",cookieencrypt);
+                    shoppingcarEntity = new ShoppingcarEntity();
+                    shoppingcarEntity.setUserid(user.getUserid());
+                    shoppingcarEntity.setCookie(cookieencrypt);
+                    shoppingcarEntity.setCommodityidlist(""+commodityid);
+                    shoppingcarEntity.setTimelist(data);
+                    shoppingcarEntity.setPrice((commodityEntity.getPrice()*commodityEntity.getDiscount())*number);
+                    shoppingcarEntity.setSizes(""+size);
+                    shoppingcarEntity.setNumbers(""+number);
+                    carRepository.saveAndFlush(shoppingcarEntity);
+                    cookie.setMaxAge(60 * 60 * 24 * 7);//保留7天
+                    modelMap.addAttribute("price",shoppingcarEntity.getPrice());
+                    modelMap.addAttribute("shoppingcarEntity",shoppingcarEntity);
+                    response.addCookie(cookie);
+                    return "single";
+                }
             }
         }
     }
