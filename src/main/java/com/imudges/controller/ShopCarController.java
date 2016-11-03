@@ -47,12 +47,18 @@ public class ShopCarController {
     }
     @RequestMapping(value = "/emptyCart", method =  RequestMethod.GET)
     public String emptyCart(@CookieValue(value = "userCookie",required  = false) String userCookie,String html, ModelMap modelMap){
-        UserEntity userEntity = userRepository.findByCookie(userCookie);
-        ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(userEntity.getUserid());
-        shopCarRepository.delete(shoppingcarEntity);
-        modelMap.addAttribute("price","0.00");
-        modelMap.addAttribute("user", userEntity);
-        return html;
+        if(userCookie == null) {
+            UserEntity user = new UserEntity();
+            modelMap.addAttribute("user", user);
+            modelMap.addAttribute("price", "0.00");
+            return html;
+        }else {
+            UserEntity userEntity = userRepository.findByCookie(userCookie);
+            ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(userEntity.getUserid());
+            shopCarRepository.delete(shoppingcarEntity);
+            modelMap.addAttribute("price","0.00");
+            modelMap.addAttribute("user", userEntity);
+            return html;
+        }
     }
-
 }
