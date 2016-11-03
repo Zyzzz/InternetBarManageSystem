@@ -250,7 +250,7 @@ function delCookie()
 			 <h2>My Shopping Bag (${number})</h2>
 			<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
 			<div class="cart-header">
-				 <div class="close1"> </div>
+				 <div class="close1"><a href="/removeGoods?number=${number--}"></a> </div>
 				 <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							 <img src=${shoppCartEntrie.commodityEntity.imageByImageId.img} class="img-responsive" alt="">

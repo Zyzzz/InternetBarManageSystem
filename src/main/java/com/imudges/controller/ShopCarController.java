@@ -147,4 +147,57 @@ public class ShopCarController {
             return "checkout";
         }
     }
+    @RequestMapping(value = "/removeGoods", method =  RequestMethod.GET)
+    public String romveGood(@CookieValue(value = "userCookie",required  = false) String userCookie, ModelMap modelMap,int number){
+        UserEntity user = userRepository.findByCookie(userCookie);
+        System.out.println("UserId:"+user.getFirstname());
+        modelMap.addAttribute("user", user);
+        ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(user.getUserid());
+        String[] Commodityids = shoppingcarEntity.getCommodityidlist().split(";");
+        String[] Sizes = shoppingcarEntity.getSizes().split(";");
+        String[] Numbers = shoppingcarEntity.getNumbers().split(";");
+        String[] Times = shoppingcarEntity.getTimelist().split(";");
+        if(Commodityids.length==1){
+            modelMap.addAttribute("price","0.00");
+            List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
+            modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
+            modelMap.addAttribute("user", user);
+            modelMap.addAttribute("number",0);
+            modelMap.addAttribute("message","");
+        }else {
+            String commodityids = "";
+            String sizes="";
+            String datas = "";
+            String numbers = "";
+            double Price=0;
+            for(int i=0;i<Commodityids.length;i++) {
+                if(i != Commodityids.length-number){
+                    commodityids=commodityids+ Commodityids[i]+";";
+                    sizes =sizes + Sizes[i] +";";
+                    datas = datas + Times[i]+";";
+                    numbers = numbers + Numbers[i]+";";
+                    Price+= commodityRepository.findOne(Integer.valueOf(Commodityids[i])).getPrice() * commodityRepository.findOne(Integer.valueOf(Commodityids[i])).getDiscount();
+                }
+            }
+            if(commodityids.charAt(commodityids.length()-1)==';') {
+                commodityids.substring(0,commodityids.length()-1);
+            }
+            if(sizes.charAt(sizes.length()-1)==';') {
+                sizes.substring(0,sizes.length()-1);
+            }
+            if(datas.charAt(datas.length()-1)==';') {
+                datas.substring(0,datas.length()-1);
+            }
+            if(numbers.charAt(numbers.length()-1)==';') {
+                numbers.substring(0,numbers.length()-1);
+            }
+            shoppingcarEntity.setCommodityidlist(commodityids);
+            shoppingcarEntity.setSizes(sizes);
+            shoppingcarEntity.setTimelist(datas);
+            shoppingcarEntity.setPrice(Price);
+            shoppingcarEntity.setNumbers(numbers);
+
+        }
+        return "checkout";
+    }
 }
