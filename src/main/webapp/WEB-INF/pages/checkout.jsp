@@ -246,6 +246,7 @@ function delCookie()
 <div class="content">
 <div class="cart-items">
 	<div class="container">
+				<h2>${message}</h2>
 			 <h2>My Shopping Bag (${number})</h2>
 			<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
 			<div class="cart-header">
@@ -271,13 +272,8 @@ function delCookie()
 				  </div>
 			 </div>
 			</c:forEach>
-
-
-
-
-
 			<div class="btn_form">
-				<a href="" id ="links" class="add-cart item_add" onclick="getInput();">ADD TO CART</a>
+				<a href="/toGenerateOrders" id ="links" class="add-cart item_add" >To Generate Orders</a>
 			</div>
 		 </div>
 		 </div>
