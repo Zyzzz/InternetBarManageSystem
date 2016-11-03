@@ -10,6 +10,15 @@ public class ShoppCartEntry {
     private String time;
     private String size;
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    private String number;
     public CommodityEntity getCommodityEntity() {
         return commodityEntity;
     }

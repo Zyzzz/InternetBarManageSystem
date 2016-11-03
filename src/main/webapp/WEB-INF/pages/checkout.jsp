@@ -247,18 +247,19 @@ function delCookie()
 <div class="cart-items">
 	<div class="container">
 			 <h2>My Shopping Bag (${number})</h2>
-
+			<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
 			<div class="cart-header">
 				 <div class="close1"> </div>
 				 <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							 <img src="images/c1.jpeg" class="img-responsive" alt="">
+							 <img src=${shoppCartEntrie.commodityEntity.imageByImageId.img} class="img-responsive" alt="">
 						</div>
 					   <div class="cart-item-info">
-						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+						<h3><a href="#"> ${shoppCartEntrie.commodityEntity.commodityname} </a><span>Pickup time:</span><span>${shoppCartEntrie.time}</span></h3>
 						<ul class="qty">
-							<li><p>Min. order value:</p></li>
-							<li><p>FREE delivery</p></li>
+							<li><p> Size:${shoppCartEntrie.size}</p></li>
+							<li><p> Number:${shoppCartEntrie.number}</p></li>
+							<li><p>Price:${shoppCartEntrie.commodityEntity.price*shoppCartEntrie.commodityEntity.discount}</p></li>
 						</ul>
 							 <div class="delivery">
 							 <p>Service Charges : $10.00</p>
@@ -269,7 +270,7 @@ function delCookie()
 					   <div class="clearfix"></div>
 				  </div>
 			 </div>
-
+			</c:forEach>
 
 
 

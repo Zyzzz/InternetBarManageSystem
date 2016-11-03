@@ -35,15 +35,16 @@ public class ShopCarController {
             modelMap.addAttribute("price","0.00");
             List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
             modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
+            modelMap.addAttribute("number",0);
             return "checkout";
         }else {
-            // UserEntity user = userRepository.findOne(Integer.parseInt(userCookie));
             UserEntity user = userRepository.findByCookie(userCookie);
             System.out.println("UserId:"+user.getFirstname());
             modelMap.addAttribute("user", user);
             ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(user.getUserid());
             if(shoppingcarEntity==null){
                 modelMap.addAttribute("price","0.00");
+                modelMap.addAttribute("number",0);
                 List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
                 modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
             }
@@ -52,18 +53,19 @@ public class ShopCarController {
                 String[] Commodityids = shoppingcarEntity.getCommodityidlist().split(";");
                 String[] TimeList =   shoppingcarEntity.getTimelist().split(";");
                 String[] Sizes = shoppingcarEntity.getSizes().split(";");
+                String[] Numbers = shoppingcarEntity.getNumbers().split(";");
                 List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
-//              List<String> times = new ArrayList<String>();
-//              List<String> sizes = new ArrayList<String>();
                for(int i = 0;i<Commodityids.length;i++) {
                    ShoppCartEntry shoppCartEntry = new ShoppCartEntry();
                    shoppCartEntry.setCommodityEntity(commodityRepository.findOne(Integer.valueOf(Commodityids[i])));
                    shoppCartEntry.setSize(Sizes[i]);
                    shoppCartEntry.setTime(TimeList[i]);
+                   shoppCartEntry.setNumber(Numbers[i]);
                    shoppCartEntries.add(shoppCartEntry);
                 }
                 modelMap.addAttribute("price","0.00");
                 modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
+                modelMap.addAttribute("number",Commodityids.length);
             }
             return "checkout";
         }
@@ -74,13 +76,19 @@ public class ShopCarController {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);
             modelMap.addAttribute("price", "0.00");
+            List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
+            modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
+            modelMap.addAttribute("number",0);
             return html;
         }else {
             UserEntity userEntity = userRepository.findByCookie(userCookie);
             ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(userEntity.getUserid());
             shopCarRepository.delete(shoppingcarEntity);
             modelMap.addAttribute("price","0.00");
+            List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
+            modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
             modelMap.addAttribute("user", userEntity);
+            modelMap.addAttribute("number",0);
             return html;
         }
     }
