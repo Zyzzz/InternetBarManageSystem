@@ -64,7 +64,6 @@ public class ProductsController {
                 else
                     modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
                 modelMap.addAttribute("commoditys",commoditys);
-
                 modelMap.addAttribute("user", user);
                 return "products";
             }else {

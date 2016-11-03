@@ -304,9 +304,9 @@ function delCookie()
 				        </div>	
 					   </div>
 					   <div class="clearfix"></div>
-											
 				  </div>
 			  </div>
+
 			  <script>$(document).ready(function(c) {
 					$('.close3').on('click', function(c){
 							$('.cart-header3').fadeOut('slow', function(c){
@@ -315,6 +315,7 @@ function delCookie()
 					});	  
 					});
 			 </script>
+
 			  <div class="cart-header3">
 				 <div class="close3"> </div>
 				  <div class="cart-sec simpleCart_shelfItem">
@@ -334,11 +335,14 @@ function delCookie()
 				        </div>	
 					   </div>
 					   <div class="clearfix"></div>
-											
 				  </div>
-			  </div>		
+			  </div>
+			<div class="btn_form">
+				<a href="" id ="links" class="add-cart item_add" onclick="getInput();">ADD TO CART</a>
+			</div>
 		 </div>
 		 </div>
+
 <!-- checkout -->	
 <div class="subscribe">
 	 <div class="container">
