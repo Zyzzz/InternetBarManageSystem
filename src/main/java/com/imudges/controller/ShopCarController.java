@@ -103,7 +103,7 @@ public class ShopCarController {
     }
 
     @RequestMapping(value = "/toGenerateOrders", method =  RequestMethod.GET)
-    public String toGenerateOrders(@CookieValue(value = "userCookie",required  = false) String userCookie,int commodityid, ModelMap modelMap){
+    public String toGenerateOrders(@CookieValue(value = "userCookie",required  = false) String userCookie, ModelMap modelMap){
         if(userCookie == null) {
             UserEntity user = new UserEntity();
             modelMap.addAttribute("user", user);

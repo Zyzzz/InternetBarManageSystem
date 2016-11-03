@@ -11,8 +11,11 @@ public class IndentEntity {
     private int indentid;
     private int size;
     private Integer number;
+    private Integer commodityid;
     private UserEntity userByUserid;
     private CommodityEntity commodityByCommodityId;
+
+
 
     @Id
     @Column(name = "indentid", nullable = false)
@@ -43,6 +46,7 @@ public class IndentEntity {
     public void setNumber(Integer number) {
         this.number = number;
     }
+
 
     @Override
     public boolean equals(Object o) {
