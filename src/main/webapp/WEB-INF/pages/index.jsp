@@ -16,6 +16,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 	<!-- cart -->
 		<script src="js/simpleCart.min.js"> </script>
+
+
+	<script>
+		function getCookie(name)
+		{
+			var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+			if(arr=document.cookie.match(reg))
+				return unescape(arr[2]);
+			else
+				return null;
+		}
+
+		function delCookie()
+		{
+			var exp = new Date();
+			exp.setTime(exp.getTime() - 1);
+			var cval=getCookie("cartCookie");
+			if(cval!=null)
+				document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
+		}
+	</script>
 	<!-- cart -->
 </head>
 <body>
@@ -47,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $${price} </span>
 							</a>	
-							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+							<p><a href="emptyCart?html=index" onclick="delCookie();" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>

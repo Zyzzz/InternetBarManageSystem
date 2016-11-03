@@ -51,8 +51,15 @@ function delCookie()
 		document.cookie= "userCookie" + "="+uval+";expires="+exp.toGMTString();
 	if(cval!=null)
 		document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
-
 	document.getElementById("loginoutform").submit();
+}
+function delCarCookie()
+{
+	var exp = new Date();
+	exp.setTime(exp.getTime() - 1);
+	var cval=getCookie("cartCookie");
+	if(cval!=null)
+		document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
 }
 function checkUser(){
 	var email = document.getElementById("email").value;
@@ -73,8 +80,6 @@ function checkUser(){
 	document.getElementById("formid").submit();
 }
 </script>
-
-
 
 </head>
 <body>
@@ -97,7 +102,7 @@ function checkUser(){
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $${price}</span>
 							</a>	
-							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+							<p><a href = "emptyCart?html=usermessage"  onclick="delCarCookie();" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>

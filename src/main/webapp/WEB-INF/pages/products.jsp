@@ -26,6 +26,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$('.scroll-pane').jScrollPane();
 			});
 		</script>
+	<script>
+	function getCookie(name)
+	{
+	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+	if(arr=document.cookie.match(reg))
+	return unescape(arr[2]);
+	else
+	return null;
+	}
+
+	function delCookie()
+	{
+	var exp = new Date();
+	exp.setTime(exp.getTime() - 1);
+	var cval=getCookie("cartCookie");
+	if(cval!=null)
+	document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
+	}
+	</script>
 <!-- //the jScrollPane script -->
 <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- the mousewheel plugin -->
@@ -59,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $${price} </span>
 							</a>	
-							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+							<p><a href = "emptyCart?html=products"  onclick="delCookie();" class="simpleCart_empty">Empty cart</a></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>
