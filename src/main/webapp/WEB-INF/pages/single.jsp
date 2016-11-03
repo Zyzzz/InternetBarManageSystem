@@ -95,7 +95,7 @@ function delCookie()
 							<a href="checkout.html">
 								 <span class="simpleCart_total">${price} </span>
 							</a>	
-							<p><a href="emptyCart?html=checkout"  onclick="delCookie();" class="simpleCart_empty">Empty cart</a></p>
+							<p></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>

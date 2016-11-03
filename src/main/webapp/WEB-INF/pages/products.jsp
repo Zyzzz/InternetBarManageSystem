@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $${price} </span>
 							</a>	
-							<p><a href = "emptyCart?html=products"  onclick="delCookie();" class="simpleCart_empty">Empty cart</a></p>
+							<p></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>

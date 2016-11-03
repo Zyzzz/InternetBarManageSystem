@@ -55,7 +55,7 @@ $(window).load(function() {
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span>
 							</a>	
-							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+							<p></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>
