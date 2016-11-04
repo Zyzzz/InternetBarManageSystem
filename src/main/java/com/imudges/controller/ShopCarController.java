@@ -157,13 +157,15 @@ public class ShopCarController {
         String[] Sizes = shoppingcarEntity.getSizes().split(";");
         String[] Numbers = shoppingcarEntity.getNumbers().split(";");
         String[] Times = shoppingcarEntity.getTimelist().split(";");
+        List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
         if(Commodityids.length==1){
             modelMap.addAttribute("price","0.00");
-            List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
             modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
             modelMap.addAttribute("user", user);
             modelMap.addAttribute("number",0);
             modelMap.addAttribute("message","");
+            shopCarRepository.delete(shoppingcarEntity);
+            return "checkout";
         }else {
             String commodityids = "";
             String sizes="";
@@ -172,6 +174,13 @@ public class ShopCarController {
             double Price=0;
             for(int i=0;i<Commodityids.length;i++) {
                 if(i != Commodityids.length-number){
+                    ShoppCartEntry shoppCartEntry = new ShoppCartEntry();
+                    shoppCartEntry.setCommodityEntity(commodityRepository.findOne(Integer.valueOf(Commodityids[i])));
+                    shoppCartEntry.setSize(Sizes[i]);
+                    shoppCartEntry.setTime(Times[i]);
+                    shoppCartEntry.setNumber(Numbers[i]);
+                    shoppCartEntries.add(shoppCartEntry);
+
                     commodityids=commodityids+ Commodityids[i]+";";
                     sizes =sizes + Sizes[i] +";";
                     datas = datas + Times[i]+";";
@@ -196,7 +205,12 @@ public class ShopCarController {
             shoppingcarEntity.setTimelist(datas);
             shoppingcarEntity.setPrice(Price);
             shoppingcarEntity.setNumbers(numbers);
-
+            shopCarRepository.saveAndFlush(shoppingcarEntity);
+            modelMap.addAttribute("price",Price);
+            modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
+            modelMap.addAttribute("user", user);
+            modelMap.addAttribute("number",Commodityids.length-1);
+            modelMap.addAttribute("message","");
         }
         return "checkout";
     }
