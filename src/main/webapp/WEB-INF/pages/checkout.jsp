@@ -246,32 +246,64 @@ function delCookie()
 <div class="content">
 <div class="cart-items">
 	<div class="container">
-				<h2>${message}</h2>
+		<h2>${message}</h2>
 			 <h2>My Shopping Bag (${number})</h2>
-			<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
-			<div class="cart-header">
-				 <div class="close1"><a href="/removeGoods?number=${number--}"></a> </div>
-				 <div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							 <img src=${shoppCartEntrie.commodityEntity.imageByImageId.img} class="img-responsive" alt="">
+		<c:choose>
+			<c:when test="${empty shoppCartEntries}">
+				<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
+					<div class="cart-header">
+						<a class="close1"></a>
+						<div class="cart-sec simpleCart_shelfItem">
+							<div class="cart-item cyc">
+								<img src=${shoppCartEntrie.commodityEntity.imageByImageId.img} class="img-responsive" alt="">
+							</div>
+							<div class="cart-item-info">
+								<h3><a href="#"> ${shoppCartEntrie.commodityEntity.commodityname} </a><span>Pickup time:</span><span>${shoppCartEntrie.time}</span></h3>
+								<ul class="qty">
+									<li><p> Size:${shoppCartEntrie.size}</p></li>
+									<li><p> Number:${shoppCartEntrie.number}</p></li>
+									<li><p>Price:${shoppCartEntrie.commodityEntity.price*shoppCartEntrie.commodityEntity.discount}</p></li>
+								</ul>
+								<div class="delivery">
+									<p>Service Charges : $10.00</p>
+									<span>Delivered in 1-1:30 hours</span>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
 						</div>
-					   <div class="cart-item-info">
-						<h3><a href="#"> ${shoppCartEntrie.commodityEntity.commodityname} </a><span>Pickup time:</span><span>${shoppCartEntrie.time}</span></h3>
-						<ul class="qty">
-							<li><p> Size:${shoppCartEntrie.size}</p></li>
-							<li><p> Number:${shoppCartEntrie.number}</p></li>
-							<li><p>Price:${shoppCartEntrie.commodityEntity.price*shoppCartEntrie.commodityEntity.discount}</p></li>
-						</ul>
-							 <div class="delivery">
-							 <p>Service Charges : $10.00</p>
-							 <span>Delivered in 1-1:30 hours</span>
-							 <div class="clearfix"></div>
-				        </div>	
-					   </div>
-					   <div class="clearfix"></div>
-				  </div>
-			 </div>
-			</c:forEach>
+					</div>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<c:forEach  var="i" begin="0" end="${shoppCartEntries.size()-1}">
+					<div class="cart-header">
+						<a class="close1" href="/removeGoods?number=${i}"></a>
+						<div class="cart-sec simpleCart_shelfItem">
+							<div class="cart-item cyc">
+								<img src=${shoppCartEntries.get(i).commodityEntity.imageByImageId.img} class="img-responsive" alt="">
+							</div>
+							<div class="cart-item-info">
+								<h3><a href="#"> ${shoppCartEntries.get(i).commodityEntity.commodityname} </a><span>Pickup time:</span><span>${shoppCartEntries.get(i).time}</span></h3>
+								<ul class="qty">
+									<li><p> Size:${shoppCartEntries.get(i).size}</p></li>
+									<li><p> Number:${shoppCartEntries.get(i).number}</p></li>
+									<li><p>Price:${shoppCartEntries.get(i).commodityEntity.price*shoppCartEntries.get(i).commodityEntity.discount}</p></li>
+								</ul>
+								<div class="delivery">
+									<p>Service Charges : $10.00</p>
+									<span>Delivered in 1-1:30 hours</span>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
+
+
 			<div class="btn_form">
 				<a href="/toGenerateOrders" id ="links" class="add-cart item_add" >To Generate Orders</a>
 			</div>

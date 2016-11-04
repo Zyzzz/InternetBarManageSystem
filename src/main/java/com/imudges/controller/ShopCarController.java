@@ -86,12 +86,13 @@ public class ShopCarController {
             modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
             modelMap.addAttribute("number",0);
             modelMap.addAttribute("message","");
-
             return html;
         }else {
             UserEntity userEntity = userRepository.findByCookie(userCookie);
             ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(userEntity.getUserid());
-            shopCarRepository.delete(shoppingcarEntity);
+            if(shoppingcarEntity!=null) {
+                shopCarRepository.delete(shoppingcarEntity);
+            }
             modelMap.addAttribute("price","0.00");
             List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
             modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
@@ -173,7 +174,7 @@ public class ShopCarController {
             String numbers = "";
             double Price=0;
             for(int i=0;i<Commodityids.length;i++) {
-                if(i != Commodityids.length-number){
+                if(i != number){
                     ShoppCartEntry shoppCartEntry = new ShoppCartEntry();
                     shoppCartEntry.setCommodityEntity(commodityRepository.findOne(Integer.valueOf(Commodityids[i])));
                     shoppCartEntry.setSize(Sizes[i]);
@@ -189,16 +190,16 @@ public class ShopCarController {
                 }
             }
             if(commodityids.charAt(commodityids.length()-1)==';') {
-                commodityids.substring(0,commodityids.length()-1);
+                commodityids = commodityids.substring(0,commodityids.length()-1);
             }
             if(sizes.charAt(sizes.length()-1)==';') {
-                sizes.substring(0,sizes.length()-1);
+                sizes = sizes.substring(0,sizes.length()-1);
             }
             if(datas.charAt(datas.length()-1)==';') {
-                datas.substring(0,datas.length()-1);
+                datas = datas.substring(0,datas.length()-1);
             }
             if(numbers.charAt(numbers.length()-1)==';') {
-                numbers.substring(0,numbers.length()-1);
+                numbers = numbers.substring(0,numbers.length()-1);
             }
             shoppingcarEntity.setCommodityidlist(commodityids);
             shoppingcarEntity.setSizes(sizes);
