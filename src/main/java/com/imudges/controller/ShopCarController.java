@@ -14,7 +14,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -181,7 +180,6 @@ public class ShopCarController {
                     shoppCartEntry.setTime(Times[i]);
                     shoppCartEntry.setNumber(Numbers[i]);
                     shoppCartEntries.add(shoppCartEntry);
-
                     commodityids=commodityids+ Commodityids[i]+";";
                     sizes =sizes + Sizes[i] +";";
                     datas = datas + Times[i]+";";
