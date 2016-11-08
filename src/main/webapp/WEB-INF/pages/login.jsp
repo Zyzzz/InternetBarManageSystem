@@ -50,7 +50,7 @@ $(window).load(function() {
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text"><a href="login.html">login</a>
+					<li class="text"><a href="login.html">登录</a>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span>
@@ -231,11 +231,11 @@ $(window).load(function() {
 				<form method = 'post' action = 'userlogin'>
 				  <div>
 					  <span style="color: #FF0000">${message}</span>
-					<span>Email Address<label>*</label></span>
+					<span>邮箱地址<label>*</label></span>
 					<input name="email" type="text">
 				  </div>
 				  <div>
-					<span>Password<label>*</label></span>
+					<span>密码<label>*</label></span>
 					<input name="password" type="password">
 				  </div>
 				  <a class="forgot" href="#">Forgot Your Password?</a>
