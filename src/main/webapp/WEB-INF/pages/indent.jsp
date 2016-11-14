@@ -247,7 +247,7 @@ function delCookie()
 <div class="cart-items">
 	<div class="container">
 		<h2>${message}</h2>
-			 <h2>我的订单 (${number})</h2>
+			 <h2>我的订单 </h2>
 		<c:choose>
 			<c:when test="${empty shoppCartEntries}">
 				<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
@@ -303,9 +303,7 @@ function delCookie()
 		</c:choose>
 
 
-			<div class="btn_form">
-				<a href="/toGenerateOrders" id ="links" class="add-cart item_add" >生成订单</a>
-			</div>
+
 		 </div>
 		 </div>
 

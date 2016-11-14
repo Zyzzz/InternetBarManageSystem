@@ -53,6 +53,10 @@ function delCookie()
 		document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
 	document.getElementById("loginoutform").submit();
 }
+function sumbit(){
+	document.getElementById("checkindent").submit();
+}
+
 function delCarCookie()
 {
 	var exp = new Date();
@@ -302,7 +306,7 @@ function checkUser(){
 				<form method = 'get' action = "checkindent" id="checkindent">
 					<div class="clearfix"> </div>
 					<div class="register-but">
-						<input type="button" value="查看订单">
+						<input type="button" value="查看订单" onclick = "sumbit();">
 						<div class="clearfix"> </div>
 					</div>
 				</form>
