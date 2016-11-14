@@ -26,16 +26,7 @@
     <li><a href="info.html" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
     <li><a href="pass.html" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
       <li><a href="book.html" target="right"><span class="icon-caret-right"></span>订单管理</a></li>
-    <li><a href="page.html" target="right"><span class="icon-caret-right"></span>单页管理</a></li>  
-    <li><a href="adv.html" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
-    <li><a href="column.html" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
-  </ul>   
-  <h2><span class="icon-pencil-square-o"></span>栏目管理</h2>
-  <ul>
-    <li><a href="list.html" target="right"><span class="icon-caret-right"></span>内容管理</a></li>
-    <li><a href="add.html" target="right"><span class="icon-caret-right"></span>添加内容</a></li>
-    <li><a href="cate.html" target="right"><span class="icon-caret-right"></span>分类管理</a></li>        
-  </ul>  
+  </ul>
 </div>
 <script type="text/javascript">
 $(function(){

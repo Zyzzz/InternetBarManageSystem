@@ -44,7 +44,7 @@
           <td>${indentEntity.size}</td>
           <td>${(indentEntity.commodityByCommodityId.price*indentEntity.commodityByCommodityId.discount)*indentEntity.number}</td>
           <td>${indentEntity.time}</td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"> 完成订单</a> </div></td>
+          <td><div class="button-group"> <a id="finishindent" class="button border-red" href="javascript:void(0)" onclick="return del(${indentEntity.indentid})"> 完成订单</a> </div></td>
         </tr>
       </c:forEach>
       <tr>
@@ -57,7 +57,7 @@
 
 function del(id){
 	if(confirm("您确定要删除吗?")){
-		
+        document.getElementById("finishindent").href="deleltindent?indentid=id";
 	}
 }
 

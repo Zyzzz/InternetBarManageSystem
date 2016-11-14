@@ -66,4 +66,10 @@ public class AdminController {
         adminRepository.saveAndFlush(adminEntity);
         return "pass";
     }
+    @RequestMapping(value = "/deleltindent", method =  RequestMethod.GET)
+    public String deleltindent(int indentid){
+        adminRepository.delete(indentid);
+        return "pass";
+    }
+
 }
