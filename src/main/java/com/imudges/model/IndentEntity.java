@@ -68,8 +68,10 @@ public class IndentEntity {
         if (indentid != that.indentid) return false;
         if (size != that.size) return false;
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
+        if (time != null ? !time.equals(that.time) : that.time != null) return false;
+        if (userByUserid != null ? !userByUserid.equals(that.userByUserid) : that.userByUserid != null) return false;
+        return commodityByCommodityId != null ? commodityByCommodityId.equals(that.commodityByCommodityId) : that.commodityByCommodityId == null;
 
-        return true;
     }
 
     @Override
@@ -77,6 +79,9 @@ public class IndentEntity {
         int result = indentid;
         result = 31 * result + size;
         result = 31 * result + (number != null ? number.hashCode() : 0);
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + (userByUserid != null ? userByUserid.hashCode() : 0);
+        result = 31 * result + (commodityByCommodityId != null ? commodityByCommodityId.hashCode() : 0);
         return result;
     }
 
