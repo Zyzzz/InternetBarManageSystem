@@ -302,7 +302,7 @@ function checkUser(){
 				<form method = 'get' action = "checkindent" id="checkindent">
 					<div class="clearfix"> </div>
 					<div class="register-but">
-						<input type="button" value="查看订单" onclick = "delCookie();">
+						<input type="button" value="查看订单">
 						<div class="clearfix"> </div>
 					</div>
 				</form>
