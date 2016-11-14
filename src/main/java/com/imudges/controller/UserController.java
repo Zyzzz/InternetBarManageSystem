@@ -90,6 +90,7 @@ public class UserController {
 
     @RequestMapping(value = "/account.html", method = RequestMethod.GET)
     public String account(){
+
         return "account";
     }
 

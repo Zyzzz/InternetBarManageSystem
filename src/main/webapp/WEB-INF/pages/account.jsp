@@ -73,7 +73,7 @@ function checkUser(){
 					<li class="text"><a href="login.html">login</a>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
-								 <span class="simpleCart_total"> $${price} </span>
+								 <span class="simpleCart_total"> $0.00 </span>
 							</a>	
 							<p>></p>
 							<div class="clearfix"> </div>
@@ -243,36 +243,36 @@ function checkUser(){
 				 <div class="register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
-						<span>First Name<label>*</label></span>
+						<span>姓<label>*</label></span>
 						<input name = "firstName" type="text" id="firstName">
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
-						<span>Last Name<label>*</label></span>
+						<span>名<label>*</label></span>
 						<input  name = "lastName" type="text"id="lastName">
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
-						 <span>Email Address<label>*</label></span>
+						 <span>邮箱地址<label>*</label></span>
 						 <input name="email" type="text" id="email">
 					 </div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>登录你的新账户</label>
 					   </a>
 					 </div>
 				     <div class="register-bottom-grid">
-						    <h3>LOGIN INFORMATION</h3>
+						    <h3>登录信息</h3>
 							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
-								<span>Password<label>*</label></span>
+								<span>密码<label>*</label></span>
 								<input name="password" type="password" id="password">
 							 </div>
 							 <div class="wow fadeInRight" data-wow-delay="0.4s">
-								<span>Confirm Password<label>*</label></span>
+								<span>确定密码<label>*</label></span>
 								<input type="password"id="passwordagain">
 							 </div>
 					 </div>
 				  <div class="clearfix"> </div>
 				  <div class="register-but">
-					  <input type="button" value="submit" onclick = "checkUser();">
+					  <input type="button" value="确定提交" onclick = "checkUser();">
 					  <div class="clearfix"> </div>
 				  </div>
 				</form>
