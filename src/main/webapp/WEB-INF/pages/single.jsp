@@ -299,7 +299,7 @@ function delCookie()
 						<h3>${commodity.commodityname}</h3>
 							<p> ${commodity.description}</p>
 								<ul class="size">
-									<h3>Size</h3>
+									<h3>尺寸</h3>
 										<li><a href="#" onclick="setSize(25)">25</a></li>
 										<li><a href="#" onclick="setSize(26)">26</a></li>
 										<li><a href="#" onclick="setSize(27)">27</a></li>
@@ -311,7 +311,7 @@ function delCookie()
 										<li><a href="#" onclick="setSize(33)">33</a></li>
 								</ul>
 								<ul class="size">
-									<h3>Length</h3>
+									<h3>长度</h3>
 										<li><a href="#">32</a></li>
 										<li><a href="#">34</a></li>
 								</ul>
@@ -328,9 +328,9 @@ function delCookie()
 								</div>
 								<div class="clearfix"></div>
 							</div>
-								<p class="qty"> Qty :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
+								<p class="qty"> 数量 :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
 							<div class="btn_form">
-								<a href="" id ="links" class="add-cart item_add" onclick="getInput();">ADD TO CART</a>
+								<a href="" id ="links" class="add-cart item_add" onclick="getInput();">添加到购物车</a>
 							</div>
 							<div class="tag">
 								<p>Category : <a href="#"> Bikinis </a></p>

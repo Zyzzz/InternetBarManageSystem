@@ -285,19 +285,26 @@ function checkUser(){
 				     <div class="register-bottom-grid">
 						    <h3>更改密码</h3>
 							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
-								<span>Password<label>*</label></span>
+								<span>密码<label>*</label></span>
 								<input name="password" type="password" id="password">
 							 </div>
 							 <div class="wow fadeInRight" data-wow-delay="0.4s">
-								<span>Confirm Password<label>*</label></span>
+								<span>确定密码<label>*</label></span>
 								<input type="password"id="passwordagain">
 							 </div>
 					 </div>
 				  <div class="clearfix"> </div>
 				 	  <div class="register-but">
-					  <input type="button" value="submit" onclick = "checkUser();">
+					  <input type="button" value="确定提交修改" onclick = "checkUser();">
 					  <div class="clearfix"> </div>
 				  </div>
+				</form>
+				<form method = 'get' action = "checkindent" id="checkindent">
+					<div class="clearfix"> </div>
+					<div class="register-but">
+						<input type="button" value="查看订单" onclick = "delCookie();">
+						<div class="clearfix"> </div>
+					</div>
 				</form>
 				<form method = 'get' action = "login" id="loginoutform">
 					<div class="clearfix"> </div>
@@ -306,6 +313,7 @@ function checkUser(){
 						<div class="clearfix"> </div>
 					</div>
 				</form>
+
 		   </div>
 		 </div>
 	</div>

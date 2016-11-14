@@ -247,7 +247,7 @@ function delCookie()
 <div class="cart-items">
 	<div class="container">
 		<h2>${message}</h2>
-			 <h2>My Shopping Bag (${number})</h2>
+			 <h2>我的购物车 (${number})</h2>
 		<c:choose>
 			<c:when test="${empty shoppCartEntries}">
 				<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
@@ -258,15 +258,14 @@ function delCookie()
 								<img src=${shoppCartEntrie.commodityEntity.imageByImageId.img} class="img-responsive" alt="">
 							</div>
 							<div class="cart-item-info">
-								<h3><a href="#"> ${shoppCartEntrie.commodityEntity.commodityname} </a><span>Pickup time:</span><span>${shoppCartEntrie.time}</span></h3>
+								<h3><a href="#"> ${shoppCartEntrie.commodityEntity.commodityname} </a><span>添加时间:</span><span>${shoppCartEntrie.time}</span></h3>
 								<ul class="qty">
-									<li><p> Size:${shoppCartEntrie.size}</p></li>
-									<li><p> Number:${shoppCartEntrie.number}</p></li>
-									<li><p>Price:${shoppCartEntrie.commodityEntity.price*shoppCartEntrie.commodityEntity.discount}</p></li>
+									<li><p> 尺寸:${shoppCartEntrie.size}</p></li>
+									<li><p> 数量:${shoppCartEntrie.number}</p></li>
+									<li><p>价格:$${shoppCartEntrie.commodityEntity.price*shoppCartEntrie.commodityEntity.discount}</p></li>
 								</ul>
 								<div class="delivery">
-									<p>Service Charges : $10.00</p>
-									<span>Delivered in 1-1:30 hours</span>
+									<p>服务费用 : $10.00</p>
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -284,15 +283,15 @@ function delCookie()
 								<img src=${shoppCartEntries.get(i).commodityEntity.imageByImageId.img} class="img-responsive" alt="">
 							</div>
 							<div class="cart-item-info">
-								<h3><a href="#"> ${shoppCartEntries.get(i).commodityEntity.commodityname} </a><span>Pickup time:</span><span>${shoppCartEntries.get(i).time}</span></h3>
+								<h3><a href="#"> ${shoppCartEntries.get(i).commodityEntity.commodityname} </a><span>添加时间:</span><span>${shoppCartEntries.get(i).time}</span></h3>
 								<ul class="qty">
-									<li><p> Size:${shoppCartEntries.get(i).size}</p></li>
-									<li><p> Number:${shoppCartEntries.get(i).number}</p></li>
-									<li><p>Price:${shoppCartEntries.get(i).commodityEntity.price*shoppCartEntries.get(i).commodityEntity.discount}</p></li>
+									<li><p> 尺寸:${shoppCartEntries.get(i).size}</p></li>
+									<li><p> 数量:${shoppCartEntries.get(i).number}</p></li>
+									<li><p>价格:$${shoppCartEntries.get(i).commodityEntity.price*shoppCartEntries.get(i).commodityEntity.discount}</p></li>
 								</ul>
 								<div class="delivery">
-									<p>Service Charges : $10.00</p>
-									<span>Delivered in 1-1:30 hours</span>
+									<p>服务费用 : $10.00</p>
+
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -305,7 +304,7 @@ function delCookie()
 
 
 			<div class="btn_form">
-				<a href="/toGenerateOrders" id ="links" class="add-cart item_add" >To Generate Orders</a>
+				<a href="/toGenerateOrders" id ="links" class="add-cart item_add" >生成订单</a>
 			</div>
 		 </div>
 		 </div>

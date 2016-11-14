@@ -231,9 +231,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<div class="banner-grids">
 					<div class="col-md-6 banner-grid">
-						<h2>the latest collections</h2>
+						<h2>最新的商品</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<a href="products.html" class="button"> shop now </a>
+						<a href="products.html" class="button"> 开始购物 </a>
 					</div>
 				<div class="col-md-6 banner-grid1">
 						<img src="images/p2.png" class="img-responsive" alt=""/>
