@@ -35,7 +35,7 @@ public class AdminController {
         }
         return "adminindex";
     }
-    @RequestMapping(value = "/info.html", method =  RequestMethod.POST)
+    @RequestMapping(value = "/info.html", method =  RequestMethod.GET)
     public String adminsubmit(){
        return "info";
     }
