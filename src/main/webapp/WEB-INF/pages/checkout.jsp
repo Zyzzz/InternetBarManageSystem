@@ -73,7 +73,7 @@ function delCookie()
 					<li class="text">
 						<c:choose>
 						<c:when test="${empty user.firstname}">
-						<a href="login.html">LOGIN</a>
+						<a href="login.html">登录</a>
 						</c:when>
 						<c:otherwise>
 						<a href="usermessage.html">${user.firstname}</a>
