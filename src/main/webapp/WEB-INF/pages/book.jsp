@@ -44,21 +44,15 @@
           <td>${indentEntity.size}</td>
           <td>${(indentEntity.commodityByCommodityId.price*indentEntity.commodityByCommodityId.discount)*indentEntity.number}</td>
           <td>${indentEntity.time}</td>
-          <td><div class="button-group"> <a id="finishindent" class="button border-red" href="javascript:void(0)" onclick="return del(${indentEntity.indentid})"> 完成订单</a> </div></td>
+          <td><div class="button-group"> <a name="finishindent" class="button border-red" href="deleltIndent?indentid=${indentEntity.indentid}"> 完成订单</a> </div></td>
         </tr>
       </c:forEach>
-      <tr>
-        <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
-      </tr>
     </table>
   </div>
 </form>
 <script type="text/javascript">
-
 function del(id){
-	if(confirm("您确定要删除吗?")){
-        document.getElementById("finishindent").href="deleltindent?indentid=id";
-	}
+    //document.getElementsByClassName("button border-red").href="deleltIndent?indentid=id";
 }
 
 $("#checkall").click(function(){ 
@@ -71,6 +65,25 @@ $("#checkall").click(function(){
 	  }
   });
 })
+
+function createXMLHttpRequest() {
+    var xmlHttp;
+    if (window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+        if (xmlHttp.overrideMimeType)
+            xmlHttp.overrideMimeType('text/xml');
+    } else if (window.ActiveXObject) {
+        try {
+            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+            }
+        }
+    }
+    return xmlHttp;
+}
 
 function DelSelect(){
 	var Checkbox=false;

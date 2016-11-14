@@ -66,10 +66,13 @@ public class AdminController {
         adminRepository.saveAndFlush(adminEntity);
         return "pass";
     }
-    @RequestMapping(value = "/deleltindent", method =  RequestMethod.GET)
-    public String deleltindent(int indentid){
-        adminRepository.delete(indentid);
-        return "pass";
+    @RequestMapping(value = "/deleltIndent", method =  RequestMethod.GET)
+    public String deleltindent(int indentid,ModelMap modelMap){
+
+        indetRepository.delete(indetRepository.findOne(indentid));
+        List<IndentEntity> indentEntities = indetRepository.findAll();
+        modelMap.addAttribute("indentEntities",indentEntities);
+        return "book";
     }
 
 }
