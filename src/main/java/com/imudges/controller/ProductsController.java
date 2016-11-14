@@ -79,7 +79,6 @@ public class ProductsController {
             }
         }
     }
-
     @RequestMapping(value = "/single.html", method =  RequestMethod.GET)
     public String single(@CookieValue(value = "userCookie",required  = false) String userCookie,int commodityid, ModelMap modelMap){
         if(userCookie == null) {
