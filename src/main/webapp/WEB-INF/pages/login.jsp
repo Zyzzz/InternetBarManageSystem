@@ -221,13 +221,13 @@ $(window).load(function() {
 <div class="login-page">
 			   <div class="account_grid">
 			   <div class="col-md-6 login-left">
-			  	 <h3>NEW CUSTOMERS</h3>
-				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-				 <a class="acount-btn" href="account.html">Create an Account</a>
+			  	 <h3>新顾客</h3>
+				 <p>通过创建一个帐户与我们的商店,你将能够更快的完成结算,移动存储多个购物地址,查看和跟踪你的订单在你的帐户和更多。</p>
+				 <a class="acount-btn" href="account.html">创建一个新账户</a>
 			   </div>
 			   <div class="col-md-6 login-right">
-			  	<h3>REGISTERED CUSTOMERS</h3>
-				<p>If you have an account with us, please log in.</p>
+			  	<h3>老顾客</h3>
+				<p>如果你有我们这里的账户,请登录。</p>
 				<form method = 'post' action = 'userlogin'>
 				  <div>
 					  <span style="color: #FF0000">${message}</span>
@@ -238,9 +238,8 @@ $(window).load(function() {
 					<span>密码<label>*</label></span>
 					<input name="password" type="password">
 				  </div>
-				  <a class="forgot" href="#">Forgot Your Password?</a>
 
-				  <input type="submit" value="Login">
+				  <input type="submit" value="登录">
 			    </form>
 			   </div>	
 			   <div class="clearfix"> </div>
