@@ -285,7 +285,7 @@ function delCookie()
 								<ul class="qty">
 									<li><p> 尺寸:${shoppCartEntries.get(i).size}</p></li>
 									<li><p> 数量:${shoppCartEntries.get(i).number}</p></li>
-									<li><p>价格:$${shoppCartEntries.get(i).commodityEntity.price*shoppCartEntries.get(i).commodityEntity.discount}</p></li>
+									<li><p>价格:$${(shoppCartEntries.get(i).commodityEntity.price*shoppCartEntries.get(i).commodityEntity.discount)*shoppCartEntries.get(i).number}</p></li>
 								</ul>
 								<div class="delivery">
 									<p>服务费用 : $10.00</p>

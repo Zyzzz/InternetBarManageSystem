@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -15,81 +16,37 @@
 <body>
 <form method="post" action="">
   <div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder"> 留言管理</strong></div>
+    <div class="panel-head"><strong class="icon-reorder"> 订单管理</strong></div>
     <div class="padding border-bottom">
       <ul class="search">
-        <li>
-          <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
-          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
-        </li>
+
       </ul>
     </div>
     <table class="table table-hover text-center">
       <tr>
         <th width="120">ID</th>
-        <th>姓名</th>       
-        <th>电话</th>
-        <th>邮箱</th>
-        <th>其他</th>
-        <th width="25%">内容</th>
-         <th width="120">留言时间</th>
+        <th>用户邮箱</th>
+        <th>用户姓名</th>
+        <th>商品名称</th>
+        <th>数量</th>
+        <th>尺码</th>
+        <th>价格</th>
+        <th width="120">创建时间</th>
         <th>操作</th>       
-      </tr>      
+      </tr>
+      <c:forEach items="${indentEntities}" var="indentEntity">
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            1</td>
-          <td>神夜</td>
-          <td>13420925611</td>
-          <td>564379992@qq.com</td>  
-           <td>深圳市民治街道</td>         
-          <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-          <td>2016-07-01</td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+          <td>${indentEntity.indentid}</td>
+          <td>${indentEntity.userByUserid.email}</td>
+          <td>${indentEntity.userByUserid.firstname}${indentEntity.userByUserid.lastname}</td>
+          <td>${indentEntity.commodityByCommodityId.commodityname}</td>
+           <td>${indentEntity.number}</td>
+          <td>${indentEntity.size}</td>
+          <td>${(indentEntity.commodityByCommodityId.price*indentEntity.commodityByCommodityId.discount)*indentEntity.number}</td>
+          <td>${indentEntity.time}</td>
+          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"> 完成订单</a> </div></td>
         </tr>
-        <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            1</td>
-          <td>神夜</td>
-          <td>13420925611</td>
-          <td>564379992@qq.com</td>  
-           <td>深圳市民治街道</td>         
-          <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-          <td>2016-07-01</td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
-        </tr>
-          <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            1</td>
-          <td>神夜</td>
-          <td>13420925611</td>
-          <td>564379992@qq.com</td>  
-           <td>深圳市民治街道</td>         
-          <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-          <td>2016-07-01</td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
-        </tr>
-          <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            1</td>
-          <td>神夜</td>
-          <td>13420925611</td>
-          <td>564379992@qq.com</td>  
-           <td>深圳市民治街道</td>         
-          <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-          <td>2016-07-01</td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
-        </tr>
-          <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            1</td>
-          <td>神夜</td>
-          <td>13420925611</td>
-          <td>564379992@qq.com</td>  
-           <td>深圳市民治街道</td>         
-          <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-          <td>2016-07-01</td>
-          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
-        </tr>
+      </c:forEach>
       <tr>
         <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
       </tr>

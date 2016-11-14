@@ -1,7 +1,9 @@
 package com.imudges.controller;
 
 import com.imudges.model.AdminEntity;
+import com.imudges.model.IndentEntity;
 import com.imudges.repository.AdminRepository;
+import com.imudges.repository.IndetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/11/14.
@@ -20,7 +24,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class AdminController {
     @Autowired
     AdminRepository adminRepository;
-
+    @Autowired
+    IndetRepository indetRepository;
     @RequestMapping(value = "/adminlogin.html", method =  RequestMethod.GET)
     public String adminLogin(ModelMap modelMap){
         modelMap.addAttribute("message","");
@@ -44,7 +49,9 @@ public class AdminController {
        return "info";
     }
     @RequestMapping(value = "/book.html", method =  RequestMethod.GET)
-    public String book(){
+    public String book(ModelMap modelMap){
+        List<IndentEntity> indentEntities = indetRepository.findAll();
+        modelMap.addAttribute("indentEntities",indentEntities);
         return "book";
     }
 
