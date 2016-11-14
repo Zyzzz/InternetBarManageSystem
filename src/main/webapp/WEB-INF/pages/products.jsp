@@ -240,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="content">
 	<div class="product-model">	 
 	 <div class="container">
-		<h2>Our Products</h2>
+		<h2>我们的产品</h2>
 		 <div class="col-md-9 product-model-sec">
 
 			 <c:forEach items="${commoditys}" var="commodity">

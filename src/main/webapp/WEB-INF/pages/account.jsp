@@ -70,7 +70,7 @@ function checkUser(){
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text"><a href="login.html">login</a>
+					<li class="text"><a href="login.html">登录</a>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span>
