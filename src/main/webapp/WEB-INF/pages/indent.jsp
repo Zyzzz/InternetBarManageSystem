@@ -252,7 +252,6 @@ function delCookie()
 			<c:when test="${empty shoppCartEntries}">
 				<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">
 					<div class="cart-header">
-						<a class="close1"></a>
 						<div class="cart-sec simpleCart_shelfItem">
 							<div class="cart-item cyc">
 								<img src=${shoppCartEntrie.commodityEntity.imageByImageId.img} class="img-responsive" alt="">
@@ -277,7 +276,6 @@ function delCookie()
 			<c:otherwise>
 				<c:forEach  var="i" begin="0" end="${shoppCartEntries.size()-1}">
 					<div class="cart-header">
-						<a class="close1" href="/removeGoods?number=${i}"></a>
 						<div class="cart-sec simpleCart_shelfItem">
 							<div class="cart-item cyc">
 								<img src=${shoppCartEntries.get(i).commodityEntity.imageByImageId.img} class="img-responsive" alt="">
@@ -291,7 +289,6 @@ function delCookie()
 								</ul>
 								<div class="delivery">
 									<p>服务费用 : $10.00</p>
-
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -301,8 +298,6 @@ function delCookie()
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-
-
 
 		 </div>
 		 </div>
