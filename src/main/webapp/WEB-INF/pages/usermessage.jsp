@@ -270,11 +270,11 @@ function checkUser(){
 				 <div class="register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
-						<span>First Name<label>*</label></span>
+						<span>姓<label>*</label></span>
 						<input name = "firstName" type="text" id="firstName" value=${user.firstname}>
 					 </div>
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
-						<span>Last Name<label>*</label></span>
+						<span>名<label>*</label></span>
 						<input  name = "lastName" type="text"id="lastName" value=${user.lastname}>
 					 </div>
 					 <div class="clearfix"> </div>
@@ -283,7 +283,7 @@ function checkUser(){
 					   </a>
 					 </div>
 				     <div class="register-bottom-grid">
-						    <h3>CHANGE PASSWORD</h3>
+						    <h3>更改密码</h3>
 							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 								<span>Password<label>*</label></span>
 								<input name="password" type="password" id="password">
@@ -302,7 +302,7 @@ function checkUser(){
 				<form method = 'get' action = "login" id="loginoutform">
 					<div class="clearfix"> </div>
 					<div class="register-but">
-						<input type="button" value="loginout" onclick = "delCookie();">
+						<input type="button" value="退出登录" onclick = "delCookie();">
 						<div class="clearfix"> </div>
 					</div>
 				</form>
