@@ -247,7 +247,7 @@ function delCookie()
 <div class="cart-items">
 	<div class="container">
 		<h2>${message}</h2>
-			 <h2>我的购物车 (${number})</h2>
+			 <h2>我的订单 (${number})</h2>
 		<c:choose>
 			<c:when test="${empty shoppCartEntries}">
 				<c:forEach items="${shoppCartEntries}" var="shoppCartEntrie">

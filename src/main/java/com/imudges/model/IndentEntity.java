@@ -11,7 +11,7 @@ public class IndentEntity {
     private int indentid;
     private int size;
     private Integer number;
-    private Integer commodityid;
+    private String time;
     private UserEntity userByUserid;
     private CommodityEntity commodityByCommodityId;
 
@@ -35,6 +35,16 @@ public class IndentEntity {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    @Basic
+    @Column(name = "time", nullable = true)
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     @Basic

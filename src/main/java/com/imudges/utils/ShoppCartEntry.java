@@ -8,6 +8,7 @@ import com.imudges.model.CommodityEntity;
 public class ShoppCartEntry {
     private CommodityEntity commodityEntity;
     private String time;
+    private String number;
     private String size;
 
     public String getNumber() {
@@ -18,7 +19,7 @@ public class ShoppCartEntry {
         this.number = number;
     }
 
-    private String number;
+
     public CommodityEntity getCommodityEntity() {
         return commodityEntity;
     }
