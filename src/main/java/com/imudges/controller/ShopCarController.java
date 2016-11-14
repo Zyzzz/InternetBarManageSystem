@@ -44,6 +44,16 @@ public class ShopCarController {
         else {
             modelMap.addAttribute("price", String.valueOf(shoppingcarEntity.getPrice()));
         }
+        List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
+        for(IndentEntity indentEntity : user.getIndentByUserid()){
+            ShoppCartEntry shoppCartEntry = new ShoppCartEntry();
+            shoppCartEntry.setCommodityEntity(indentEntity.getCommodityByCommodityId());
+            shoppCartEntry.setSize(String.valueOf(indentEntity.getSize()));
+            shoppCartEntry.setNumber(String.valueOf(indentEntity.getNumber()));
+            shoppCartEntry.setTime(indentEntity.getTime());
+            shoppCartEntries.add(shoppCartEntry);
+        }
+        modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
         return "indent";
     }
     @RequestMapping(value = "/checkout.html", method =  RequestMethod.GET)
