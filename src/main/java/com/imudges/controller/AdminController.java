@@ -68,7 +68,6 @@ public class AdminController {
     }
     @RequestMapping(value = "/deleltIndent", method =  RequestMethod.GET)
     public String deleltindent(int indentid,ModelMap modelMap){
-
         indetRepository.delete(indetRepository.findOne(indentid));
         List<IndentEntity> indentEntities = indetRepository.findAll();
         modelMap.addAttribute("indentEntities",indentEntities);
