@@ -30,6 +30,22 @@ public class ShopCarController {
     CommodityRepository commodityRepository;
     @Autowired
     IndetRepository indetRepository;
+
+    @RequestMapping(value = "/checkindent", method =  RequestMethod.GET)
+    public String checkindent(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap){
+        UserEntity user = userRepository.findByCookie(userCookie);
+        System.out.println("UserId:"+user.getFirstname());
+        modelMap.addAttribute("user", user);
+        ShoppingcarEntity shoppingcarEntity = shopCarRepository.findByUserid(user.getUserid());
+        if(shoppingcarEntity==null){
+            modelMap.addAttribute("price","0.00");
+            modelMap.addAttribute("message","");
+        }
+        else {
+            modelMap.addAttribute("price", String.valueOf(shoppingcarEntity.getPrice()));
+        }
+        return "indent";
+    }
     @RequestMapping(value = "/checkout.html", method =  RequestMethod.GET)
     public String checkout(@CookieValue(value = "cartCookie",required  = false) String cartCookie, @CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap){
         if(userCookie == null) {
@@ -111,7 +127,7 @@ public class ShopCarController {
             List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
             modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
             modelMap.addAttribute("number",0);
-            modelMap.addAttribute("message","Please Login");
+            modelMap.addAttribute("message","请登录");
             return "checkout";
         }else {
             UserEntity user = userRepository.findByCookie(userCookie);
