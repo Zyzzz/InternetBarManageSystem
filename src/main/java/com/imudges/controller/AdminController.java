@@ -53,10 +53,10 @@ public class AdminController {
         return "pass";
     }
 
-    @RequestMapping(value = "/changepassword", method =  RequestMethod.GET)
+    @RequestMapping(value = "/changepassword", method =  RequestMethod.POST)
     public String changePassword(@ModelAttribute("admin")AdminEntity adminEntity,String newpass){
         adminEntity.setPassword(newpass);
         adminRepository.saveAndFlush(adminEntity);
-        return "adminindex";
+        return "pass";
     }
 }
