@@ -15,5 +15,9 @@ public class AdminController {
     public String adminLogin(){
         return "adminlogin";
     }
+    @RequestMapping(value = "/adminsubmit.html", method =  RequestMethod.GET)
+    public String adminsubmit(){
+        return "adminlogin";
+    }
 
 }

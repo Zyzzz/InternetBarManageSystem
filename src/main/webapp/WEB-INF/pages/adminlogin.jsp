@@ -145,10 +145,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6">
-					<form class="form-horizontal">
+					<form class="form-horizontal" action="/adminsubmit">
 						<span class="heading">管理员登录</span>
 						<div class="form-group">
-							<input type="email" class="form-control" id="inputEmail3" placeholder="用户名">
+							<input type="text" class="form-control" id="inputEmail3" placeholder="用户名">
 							<i class="fa fa-user"></i>
 						</div>
 						<div class="form-group help">
@@ -157,11 +157,6 @@
 							<a href="#" class="fa fa-question-circle"></a>
 						</div>
 						<div class="form-group">
-							<div class="main-checkbox">
-								<input type="checkbox" value="None" id="checkbox1" name="check"/>
-								<label for="checkbox1"></label>
-							</div>
-							<span class="text">记住密码</span>
 							<button type="submit" class="btn btn-default">登录</button>
 						</div>
 					</form>
