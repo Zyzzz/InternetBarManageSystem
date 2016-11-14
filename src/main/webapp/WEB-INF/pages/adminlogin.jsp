@@ -145,18 +145,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6">
-					<form class="form-horizontal" action="/adminsubmit">
+					<form class="form-horizontal" action="adminsubmit" method="post">
 						<span class="heading">管理员登录</span>
 						<div class="form-group">
-							<input type="text" class="form-control" id="inputEmail3" placeholder="用户名">
+							<input type="text"  name="adminName" class="form-control" id="inputEmail3" placeholder="用户名">
 							<i class="fa fa-user"></i>
 						</div>
 						<div class="form-group help">
-							<input type="password" class="form-control" id="inputPassword3" placeholder="密　码">
+							<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="密　码">
 							<i class="fa fa-lock"></i>
 							<a href="#" class="fa fa-question-circle"></a>
 						</div>
 						<div class="form-group">
+							<span class="text" style="color: red">${message}</span>
 							<button type="submit" class="btn btn-default">登录</button>
 						</div>
 					</form>
