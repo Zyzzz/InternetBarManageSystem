@@ -5,8 +5,10 @@ import com.imudges.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  * Created by Administrator on 2016/11/14.
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
+@SessionAttributes("admin")
 public class AdminController {
     @Autowired
     AdminRepository adminRepository;
@@ -33,10 +36,27 @@ public class AdminController {
             modelMap.addAttribute("message","密码错误");
             return "adminlogin";
         }
+        modelMap.addAttribute("admin",adminEntity);
         return "adminindex";
     }
     @RequestMapping(value = "/info.html", method =  RequestMethod.GET)
-    public String adminsubmit(){
+    public String info(){
        return "info";
+    }
+    @RequestMapping(value = "/book.html", method =  RequestMethod.GET)
+    public String book(){
+        return "book";
+    }
+
+    @RequestMapping(value = "/pass.html", method =  RequestMethod.GET)
+    public String pass(){
+        return "pass";
+    }
+
+    @RequestMapping(value = "/changepassword", method =  RequestMethod.GET)
+    public String changePassword(@ModelAttribute("admin")AdminEntity adminEntity,String newpass){
+        adminEntity.setPassword(newpass);
+        adminRepository.saveAndFlush(adminEntity);
+        return "adminindex";
     }
 }
