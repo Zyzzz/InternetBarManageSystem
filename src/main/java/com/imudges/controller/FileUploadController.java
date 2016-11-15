@@ -40,13 +40,13 @@ public class FileUploadController {
         response.getWriter().write("<img src='"+filePath+"'/>");
     }
     @RequestMapping("download")
-    public void download(String fileName, HttpServletResponse response) throws IOException {
+    public void download(String fileName,HttpServletRequest request, HttpServletResponse response) throws IOException {
         OutputStream os = response.getOutputStream();
         try {
             response.reset();
             response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
             response.setContentType("image/jpeg; charset=utf-8");
-            os.write(FileUtils.readFileToByteArray(FileUpload.getFile(fileName)));
+            os.write(FileUtils.readFileToByteArray(FileUpload.getFile(fileName,request)));
             os.flush();
         } finally {
             if (os != null) {

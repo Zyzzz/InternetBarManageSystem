@@ -15,7 +15,8 @@ public class FileUpload {
     //文件上传
     public static String uploadFile(MultipartFile file, HttpServletRequest request) throws IOException {
         String fileName = file.getOriginalFilename();
-        File tempFile = new File(FILE_PATH, new Date().getTime() + String.valueOf(fileName));
+        String path=request.getSession().getServletContext().getRealPath("images/");
+        File tempFile = new File(path, new Date().getTime() + String.valueOf(fileName));
         if (!tempFile.getParentFile().exists()) {
             tempFile.getParentFile().mkdir();
         }
@@ -26,7 +27,8 @@ public class FileUpload {
         return "/download?fileName=" + tempFile.getName();
     }
 
-    public static File getFile(String fileName) {
-        return new File(FILE_PATH, fileName);
+    public static File getFile(String fileName,HttpServletRequest request) {
+        String path=request.getSession().getServletContext().getRealPath("images/");
+        return new File(path, fileName);
     }
 }
