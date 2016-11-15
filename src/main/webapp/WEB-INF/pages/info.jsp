@@ -10,7 +10,22 @@
     <link rel="stylesheet" href="css/pintuer.css">
     <link rel="stylesheet" href="css/admin.css">
     <script src="js/jquery.js"></script>
-    <script src="js/pintuer.js"></script>  
+    <script src="js/pintuer.js"></script>
+    <script>
+      $(".a-upload").on("change","input[type='file']",function(){
+        var filePath=$(this).val();
+        if(filePath.indexOf("jpg")!=-1 || filePath.indexOf("png")!=-1){
+          $(".fileerrorTip").html("").hide();
+          var arr=filePath.split('\\');
+          var fileName=arr[arr.length-1];
+          $(".showFileName").html(fileName);
+        }else{
+          $(".showFileName").html("");
+          $(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+          return false
+        }
+      })
+    </script>
 </head>
 <body>
 <div class="panel admin-panel">
@@ -30,10 +45,9 @@
         <div class="label">
           <label>网站LOGO：</label>
         </div>
-        <div class="field">
-          <input type="text" id="url1" name="slogo" class="input tips" style="width:25%; float:left;" value="" data-toggle="hover" data-place="right" data-image=""  />
-          <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传" >
-        </div>
+          <a href="javascript:;" class="file">选择文件
+            <input type="file" name="" id="">
+          </a>
       </div>
       <div class="form-group">
         <div class="label">
