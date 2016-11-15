@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class FileUpload {
 
-    public static final String FILE_PATH = "/upload/";
+    public static final String FILE_PATH = "/images/";
 
     //文件上传
     public static String uploadFile(MultipartFile file, HttpServletRequest request) throws IOException {
