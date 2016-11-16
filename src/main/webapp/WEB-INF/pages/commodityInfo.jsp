@@ -34,7 +34,18 @@
 <div class="panel admin-panel">
     <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 商品信息</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="editCommodity?commodityId=${commodityEntity.commodityid}">
+        <form method="post" class="form-x" action="editCommodity">
+
+            <div class="form-group">
+                <div class="label">
+                    <label>商品名称：</label>
+                </div>
+                <div class="field">
+                    <input type="text" readonly="readonly" class="input" name="commodityId" value="${commodityEntity.commodityid}" />
+                    <div class="tips"></div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="label">
                     <label>商品名称：</label>

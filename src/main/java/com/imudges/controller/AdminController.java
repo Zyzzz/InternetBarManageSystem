@@ -93,7 +93,7 @@ public class AdminController {
         return "commodityInfo";
     }
 
-    @RequestMapping(value = "/editCommodity", method =  RequestMethod.GET)
+    @RequestMapping(value = "/editCommodity", method =  RequestMethod.POST)
     public String editCommodity(int commodityId,String commodityName,double price,String description,double discount,ModelMap modelMap){
         CommodityEntity commodityEntity = commodityRepository.findOne(commodityId);
         commodityEntity.setCommodityname(commodityName);
