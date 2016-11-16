@@ -5,6 +5,8 @@ package com.imudges.controller;
  */
 
 
+import com.imudges.model.CommodityEntity;
+import com.imudges.model.ImageEntity;
 import com.imudges.utils.FileUpload;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
+
 /**
  * Created by shhao.
  * Date: 14-9-1
@@ -33,11 +36,15 @@ public class FileUploadController {
     }
     @RequestMapping("addIndent")
     public void addIndent(String commodityName,MultipartFile imagetop,MultipartFile imagetwo,MultipartFile imagethree,int price,String description,double discount,HttpServletRequest request) throws IOException {
+        CommodityEntity commodityEntity = new CommodityEntity();
+        ImageEntity imageEntity = new ImageEntity();
 
         String filePath1 = FileUpload.uploadFile(imagetop, request);
         String filePath2 = FileUpload.uploadFile(imagetwo, request);
         String filePath3 = FileUpload.uploadFile(imagethree, request);
-
+        filePath1 = filePath1+";"+filePath2+";"+filePath3;
+        imageEntity.setImg(filePath1);
+        commodityEntity.setCommodityname(commodityName);
 
     }
     @RequestMapping("download")
