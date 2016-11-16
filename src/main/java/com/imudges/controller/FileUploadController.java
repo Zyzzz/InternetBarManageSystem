@@ -31,13 +31,14 @@ public class FileUploadController {
     public String test(){
         return "test";
     }
-    @RequestMapping("upload")
-    public void upload( MultipartFile studentPhoto, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String filePath = FileUpload.uploadFile(studentPhoto, request);
-        logger.info("filePath:" + filePath);
-        System.out.println("filePath："+filePath);
-        response.setContentType("text/html;charset=utf8");
-        response.getWriter().write("<img src='"+filePath+"'/>");
+    @RequestMapping("addIndent")
+    public void addIndent(String commodityName,MultipartFile imagetop,MultipartFile imagetwo,MultipartFile imagethree,int price,String description,double discount,HttpServletRequest request) throws IOException {
+
+        String filePath1 = FileUpload.uploadFile(imagetop, request);
+        String filePath2 = FileUpload.uploadFile(imagetwo, request);
+        String filePath3 = FileUpload.uploadFile(imagethree, request);
+
+
     }
     @RequestMapping("download")
     public void download(String fileName,HttpServletRequest request, HttpServletResponse response) throws IOException {

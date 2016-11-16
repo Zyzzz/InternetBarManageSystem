@@ -73,5 +73,9 @@ public class AdminController {
         modelMap.addAttribute("indentEntities",indentEntities);
         return "book";
     }
+    @RequestMapping(value = "/cate.html", method =  RequestMethod.GET)
+    public String cate(){
+        return "cate";
+    }
 
 }

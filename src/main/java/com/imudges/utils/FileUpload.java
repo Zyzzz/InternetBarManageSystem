@@ -24,7 +24,7 @@ public class FileUpload {
             tempFile.createNewFile();
         }
         file.transferTo(tempFile);
-        return "/download?fileName=" + tempFile.getName();
+        return "images/" + tempFile.getName();
     }
 
     public static File getFile(String fileName,HttpServletRequest request) {
