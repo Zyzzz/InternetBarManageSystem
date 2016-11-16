@@ -80,6 +80,8 @@ public class AdminController {
 
     @RequestMapping(value = "/deleltCommodity", method =  RequestMethod.GET)
     public String deleltCommodity(int commodityid,ModelMap modelMap){
+        CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
+        indetRepository.delete(commodityEntity.getImageByImageId().getImageid());
         commodityRepository.delete(commodityid);
         List<CommodityEntity> commodityEntities = commodityRepository.findAll();
         modelMap.addAttribute("commodityEntities",commodityEntities);
