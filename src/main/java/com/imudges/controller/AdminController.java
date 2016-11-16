@@ -1,8 +1,10 @@
 package com.imudges.controller;
 
 import com.imudges.model.AdminEntity;
+import com.imudges.model.CommodityEntity;
 import com.imudges.model.IndentEntity;
 import com.imudges.repository.AdminRepository;
+import com.imudges.repository.CommodityRepository;
 import com.imudges.repository.IndetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,8 @@ public class AdminController {
     AdminRepository adminRepository;
     @Autowired
     IndetRepository indetRepository;
+    @Autowired
+    CommodityRepository commodityRepository;
     @RequestMapping(value = "/adminlogin.html", method =  RequestMethod.GET)
     public String adminLogin(ModelMap modelMap){
         modelMap.addAttribute("message","");
@@ -74,7 +78,9 @@ public class AdminController {
         return "book";
     }
     @RequestMapping(value = "/cate.html", method =  RequestMethod.GET)
-    public String cate(){
+    public String cate(ModelMap modelMap){
+        List<CommodityEntity> commodityEntities = commodityRepository.findAll();
+        modelMap.addAttribute("commodityEntities",commodityEntities);
         return "cate";
     }
 
