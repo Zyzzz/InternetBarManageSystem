@@ -93,6 +93,18 @@ public class AdminController {
         return "commodityInfo";
     }
 
+    @RequestMapping(value = "/editCommodity", method =  RequestMethod.GET)
+    public String editCommodity(int commodityId,String commodityName,double price,String description,double discount,ModelMap modelMap){
+        CommodityEntity commodityEntity = commodityRepository.findOne(commodityId);
+        commodityEntity.setCommodityname(commodityName);
+        commodityEntity.setPrice(price);
+        commodityEntity.setDescription(description);
+        commodityEntity.setDiscount(discount);
+        commodityRepository.saveAndFlush(commodityEntity);
+        List<CommodityEntity> commodityEntities = commodityRepository.findAll();
+        modelMap.addAttribute("commodityEntities",commodityEntities);
+        return "cate";
+    }
 
     @RequestMapping(value = "/cate.html", method =  RequestMethod.GET)
     public String cate(ModelMap modelMap){
