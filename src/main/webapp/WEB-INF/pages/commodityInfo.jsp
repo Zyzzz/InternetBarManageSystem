@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title>网站信息</title>
+    <title>商品信息</title>
     <link rel="stylesheet" href="css/pintuer.css">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/fileinput.min.css">
@@ -40,39 +40,9 @@
                     <label>商品名称：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="commodityName" value="" />
+                    <input type="text" class="input" name="commodityName" value="${commodityEntity.commodityname}" />
                     <div class="tips"></div>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <div class="label">
-                    <label>商品首页图片：</label>
-                </div>
-                <a href="javascript:;" class="file">
-                    选择文件
-                    <input type="file" name="imagetop" >
-                </a>
-            </div>
-
-            <div class="form-group">
-                <div class="label">
-                    <label>商品图片1：</label>
-                </div>
-                <a href="javascript:;" class="file">
-                    选择文件
-                    <input type="file" name="imagetwo" >
-                </a>
-            </div>
-
-            <div class="form-group">
-                <div class="label">
-                    <label>商品图片2：</label>
-                </div>
-                <a href="javascript:;" class="file">
-                    选择文件
-                    <input type="file" name="imagethree" >
-                </a>
             </div>
 
             <div class="form-group">
@@ -80,7 +50,7 @@
                     <label>商品价格：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="price" value="" />
+                    <input type="text" class="input" name="price" value="${commodityEntity.price}" />
                 </div>
             </div>
 
@@ -89,7 +59,7 @@
                     <label>商品描述：</label>
                 </div>
                 <div class="field">
-                    <textarea  class="input" name="description" style="height:80px"></textarea>
+                    <input type="text"  class="input" name="description" value="${commodityEntity.description}"  style="height:80px"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -99,7 +69,7 @@
                     <label>商品折扣：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="discount" value="" />
+                    <input type="text" class="input" name="discount" value="${commodityEntity.discount}" />
                     <div class="tips"></div>
                 </div>
             </div>

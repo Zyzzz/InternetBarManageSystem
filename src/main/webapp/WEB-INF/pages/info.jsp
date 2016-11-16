@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 网站信息</strong></div>
+    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 商品信息</strong></div>
     <div class="body-content">
         <form method="post" class="form-x" action="addIndent">
             <div class="form-group">

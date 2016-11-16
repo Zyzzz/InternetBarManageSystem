@@ -77,6 +77,23 @@ public class AdminController {
         modelMap.addAttribute("indentEntities",indentEntities);
         return "book";
     }
+
+    @RequestMapping(value = "/deleltCommodity", method =  RequestMethod.GET)
+    public String deleltCommodity(int commodityid,ModelMap modelMap){
+        commodityRepository.delete(commodityid);
+        List<CommodityEntity> commodityEntities = commodityRepository.findAll();
+        modelMap.addAttribute("commodityEntities",commodityEntities);
+        return "cate";
+    }
+
+    @RequestMapping(value = "/getCommodity", method =  RequestMethod.GET)
+    public String getCommodity(int commodityid,ModelMap modelMap){
+        CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
+        modelMap.addAttribute("commodityEntity",commodityEntity);
+        return "commodityInfo";
+    }
+
+
     @RequestMapping(value = "/cate.html", method =  RequestMethod.GET)
     public String cate(ModelMap modelMap){
         List<CommodityEntity> commodityEntities = commodityRepository.findAll();

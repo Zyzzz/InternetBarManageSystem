@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
+  <div class="panel-head"><strong class="icon-reorder"> 商品列表</strong></div>
   <table class="table table-hover text-center">
     <tr>
       <th width="3%">ID</th>
@@ -32,7 +32,7 @@
             <td>${commodityEntitie.description}</td>
             <td>${commodityEntitie.price}</td>
             <td>${commodityEntitie.discount}</td>
-            <td><div class="button-group"> <a class="button border-main" href="cateedit.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,2)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+            <td><div class="button-group"> <a class="button border-main" href="getCommodity?commodityid=${commodityEntitie.commodityid}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="deleltCommodity?commodityid=${commodityEntitie.commodityid}" onclick="return del(1,2)"><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr>
       </c:forEach>
   </table>
@@ -40,8 +40,9 @@
 <script type="text/javascript">
 function del(id,mid){
 	if(confirm("您确定要删除吗?")){			
-		
+		return true;
 	}
+    return false;
 }
 </script>
 </body>
