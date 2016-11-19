@@ -159,12 +159,14 @@ public class ShopCarController {
                 String[] Commodityids = shoppingcarEntity.getCommodityidlist().split(";");
                 String[] Sizes = shoppingcarEntity.getSizes().split(";");
                 String[] Numbers = shoppingcarEntity.getNumbers().split(";");
+                String[] Times = shoppingcarEntity.getTimelist().split(";");
                 for(int i=0;i<Commodityids.length;i++){
                     IndentEntity indentEntity = new IndentEntity();
                     indentEntity.setUserByUserid(user);
                     indentEntity.setCommodityByCommodityId(commodityRepository.findOne(Integer.valueOf(Commodityids[i])));
                     indentEntity.setNumber(Integer.valueOf(Numbers[i]));
                     indentEntity.setSize(Integer.valueOf(Sizes[i]));
+                    indentEntity.setTime(Times[i]);
                     indetRepository.saveAndFlush(indentEntity);
                 }
                 shopCarRepository.delete(shoppingcarEntity);
