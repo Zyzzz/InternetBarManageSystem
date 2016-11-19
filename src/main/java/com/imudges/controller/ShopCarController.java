@@ -149,7 +149,7 @@ public class ShopCarController {
                 modelMap.addAttribute("number",0);
                 List<ShoppCartEntry> shoppCartEntries = new ArrayList<ShoppCartEntry>();
                 modelMap.addAttribute("shoppCartEntries",shoppCartEntries);
-                modelMap.addAttribute("message"," No Goods");
+                modelMap.addAttribute("message"," 购物车为空，快去选点东西吧！");
             }
             else{
                 modelMap.addAttribute("price",String.valueOf(shoppingcarEntity.getPrice()));
@@ -168,7 +168,7 @@ public class ShopCarController {
                     indetRepository.saveAndFlush(indentEntity);
                 }
                 shopCarRepository.delete(shoppingcarEntity);
-                modelMap.addAttribute("message"," Creation Successful");
+                modelMap.addAttribute("message"," 订单生产成功");
             }
             return "checkout";
         }

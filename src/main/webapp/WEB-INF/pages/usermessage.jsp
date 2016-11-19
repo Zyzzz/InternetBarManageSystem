@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -101,7 +101,14 @@ function checkUser(){
    			</div>
 				<div class="top-right">
 				<ul>
-					<li class="text"><a href="login">login</a>
+					<li class="text"><c:choose>
+						<c:when test="${empty user.firstname}">
+							<a href="login.html">登录</a>
+						</c:when>
+						<c:otherwise>
+						<a href="usermessage.html">${user.firstname}</a>
+						</c:otherwise>
+						</c:choose>
 					<li><div class="cart box_1">
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $${price}</span>
@@ -272,7 +279,7 @@ function checkUser(){
 			<div class="register">
 		  	  <form method = 'post' action = 'submit_usermessage'id="formid" >
 				 <div class="register-top-grid">
-					<h3>PERSONAL INFORMATION</h3>
+					<h3>个人信息</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>姓<label>*</label></span>
 						<input name = "firstName" type="text" id="firstName" value=${user.firstname}>

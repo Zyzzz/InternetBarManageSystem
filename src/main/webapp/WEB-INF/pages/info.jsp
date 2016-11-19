@@ -9,14 +9,13 @@
     <title>网站信息</title>
     <link rel="stylesheet" href="css/pintuer.css">
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="css/fileinput.min.css">
+
     <script src="js/jquery.js"></script>
     <script src="js/pintuer.js"></script>
-    <script src="js/fileinput.min.js"></script>
-    <script src="js/zh.js"></script>
+
     <script>
-        $(".file").on("change","input[type='file']",function(){
-            var filePath=$(this).val();
+      function change(hhh){
+            var filePath=document.getElementById(hhh).val();
             if(filePath.indexOf("jpg")!=-1 || filePath.indexOf("png")!=-1){
                 $(".fileerrorTip").html("").hide();
                 var arr=filePath.split('\\');
@@ -27,7 +26,7 @@
                 $(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
                 return false
             }
-        })
+        }
     </script>
 </head>
 <body>
@@ -51,7 +50,7 @@
                 </div>
                 <a href="javascript:;" class="file">
                     选择文件
-                    <input type="file" name="imagetop" >
+                    <input id="imagetop" type="file" name="imagetop" onchange="change(imagetop);">
                 </a>
             </div>
 
