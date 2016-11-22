@@ -242,7 +242,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <div class="container">
 		<h2>我们的产品</h2>
 		 <div class="col-md-9 product-model-sec">
-
 			 <c:forEach items="${commoditys}" var="commodity">
 			 			<a href="single.html?commodityid=${commodity.commodityid}"><div class="product-grid">
 						<div class="more-product"><span> </span></div>						
@@ -265,8 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									  <fmt:formatNumber type="number" value="${(1-commodity.discount)*100}" maxFractionDigits="0"/>
 									  % Off]</p>
 								</div>
-								<input type="text" class="item_quantity" value="1" />
-								<input type="button" class="item_add items" value="+">
+
 								<div class="clearfix"> </div>
 							</div>												
 						</div>

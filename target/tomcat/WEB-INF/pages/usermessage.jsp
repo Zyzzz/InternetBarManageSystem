@@ -279,7 +279,7 @@ function checkUser(){
 			<div class="register">
 		  	  <form method = 'post' action = 'submit_usermessage'id="formid" >
 				 <div class="register-top-grid">
-					<h3>PERSONAL INFORMATION</h3>
+					<h3>个人信息</h3>
 					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
 						<span>姓<label>*</label></span>
 						<input name = "firstName" type="text" id="firstName" value=${user.firstname}>

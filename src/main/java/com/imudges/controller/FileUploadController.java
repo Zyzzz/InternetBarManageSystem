@@ -10,7 +10,6 @@ import com.imudges.model.ImageEntity;
 import com.imudges.repository.CommodityRepository;
 import com.imudges.repository.ImageRepository;
 import com.imudges.utils.FileUpload;
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,16 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
-/**
- * Created by shhao.
- * Date: 14-9-1
- * Time:下午4:32
- */
 @Controller
 public class FileUploadController {
 
@@ -37,7 +29,6 @@ public class FileUploadController {
     CommodityRepository commodityRepository;
     @Autowired
     ImageRepository imageRepository;
-
     @RequestMapping("test")
     public String test(){
         return "test";
@@ -63,19 +54,5 @@ public class FileUploadController {
         modelMap.addAttribute("commodityEntities",commodityEntities);
         return "cate";
     }
-    @RequestMapping("download")
-    public void download(String fileName,HttpServletRequest request, HttpServletResponse response) throws IOException {
-        OutputStream os = response.getOutputStream();
-        try {
-            response.reset();
-            response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
-            response.setContentType("image/jpeg; charset=utf-8");
-            os.write(FileUtils.readFileToByteArray(FileUpload.getFile(fileName,request)));
-            os.flush();
-        } finally {
-            if (os != null) {
-                os.close();
-            }
-        }
-    }
+
 }
