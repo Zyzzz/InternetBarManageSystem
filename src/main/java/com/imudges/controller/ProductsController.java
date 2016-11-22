@@ -111,7 +111,7 @@ public class ProductsController {
             CommodityEntity commodityEntity = commodityRepository.findOne(commodityid);
             modelMap.addAttribute("commodity",commodityEntity);
             modelMap.addAttribute("price","0.00");
-            modelMap.addAttribute("message","Please Login");
+            modelMap.addAttribute("message","请登录");
             return "single";
         }else {
             modelMap.addAttribute("message","");
