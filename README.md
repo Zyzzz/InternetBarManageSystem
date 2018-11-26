@@ -1,0 +1,2 @@
+# InternetBarManageSystem
+本科JavaWeb课程作业，本来想写网吧管理系统，最后写了一个卖衣服的电子商务网站。使用了SpringMVC。
