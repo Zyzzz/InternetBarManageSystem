@@ -485,7 +485,7 @@ function delCookie()
 						<a href="single.html">
 						<div class="more-product"><span> </span></div>						
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img src="images/m4.jpg" class="img-responsive" alt="">
+							<img src="images/m2.jpg" class="img-responsive" alt="">
 							<div class="b-wrapper">
 							<h4 class="b-animate b-from-left  b-delay03">							
 							<button> + </button>
