@@ -66,13 +66,19 @@ function delCarCookie()
 		document.cookie="cartCookie" + "="+cval+";expires="+exp.toGMTString();
 }
 function checkUser(){
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
-	var passwordagain = document.getElementById("passwordagain").value;
-	if(email == ""  ){
-		alert("邮箱不能为空");
+	var firstname = document.getElementById("firstName").value;
+	var lastname = document.getElementById("lastName").value;
+	if(firstname==""){
+		alert("姓氏不能为空");
 		return false;
 	}
+	if(lastname==""){
+		alert("名字不能为空");
+		return false;
+	}
+
+	var password = document.getElementById("password").value;
+	var passwordagain = document.getElementById("passwordagain").value;
 	if(password == ""  ){
 		alert("密码不能为空");
 		return false;

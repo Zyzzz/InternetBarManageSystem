@@ -13,9 +13,7 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/jquery.min.js"></script>
-<!-- cart -->
-		<script src="js/simpleCart.min.js"> </script>
-	<!-- cart -->
+
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 <script src="js/imagezoom.js"></script>
 
@@ -36,6 +34,16 @@ function checkUser(){
 	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
 	var passwordagain = document.getElementById("passwordagain").value;
+	var firstname = document.getElementById("firstName").value;
+	var lastname = document.getElementById("lastName").value;
+	if(firstname==""){
+		alert("姓氏不能为空");
+		return false;
+	}
+	if(lastname==""){
+		alert("名字不能为空");
+		return false;
+	}
 	if(email == ""  ){
 		alert("邮箱不能为空");
 		return false;
@@ -75,7 +83,7 @@ function checkUser(){
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span>
 							</a>	
-							<p>></p>
+							<p></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>
