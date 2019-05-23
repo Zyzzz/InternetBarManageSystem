@@ -97,11 +97,18 @@ public class UserController {
     //@ResponseBody
     @RequestMapping(value = "/submit_account", method = RequestMethod.POST)
     public String submit_account(@CookieValue(value = "userCookie",required  = false) String userCookie,ModelMap modelMap,HttpServletResponse response,String firstName,String lastName,String email,String password,boolean checkbox){
+
+
         UserEntity user = new UserEntity();
         user.setFirstname(firstName);
         user.setLastname(lastName);
         user.setEmail(email);
         user.setPassword(password);
+        UserEntity userEntity = userRepository.findByEmail(email);
+        if(userEntity!=null){
+            modelMap.addAttribute("imp","该邮箱已被注册");
+            return "account";
+        }
         if(!checkbox) {
             userRepository.save(user);
             return "login";

@@ -13,9 +13,7 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/jquery.min.js"></script>
-<!-- cart -->
-		<script src="js/simpleCart.min.js"> </script>
-	<!-- cart -->
+
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 <script src="js/imagezoom.js"></script>
 
@@ -31,13 +29,36 @@ $(window).load(function() {
     controlNav: "thumbnails"
   });
 });
-
+function checkEmail(){
+	var email = document.getElementById("email").value;
+	var myReg=/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+	var myspan = document.getElementById("myspan");
+	if(myReg.test(email)){
+		return true;
+	}else{
+		myspan.innerText ="邮箱格式不对!";
+		return false;
+	}
+}
 function checkUser(){
 	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
 	var passwordagain = document.getElementById("passwordagain").value;
+	var firstname = document.getElementById("firstName").value;
+	var lastname = document.getElementById("lastName").value;
+	if(firstname==""){
+		alert("姓氏不能为空");
+		return false;
+	}
+	if(lastname==""){
+		alert("名字不能为空");
+		return false;
+	}
 	if(email == ""  ){
 		alert("邮箱不能为空");
+		return false;
+	}
+	if(!checkEmail()){
 		return false;
 	}
 	if(password == ""  ){
@@ -75,7 +96,7 @@ function checkUser(){
 							<a href="checkout.html">
 								 <span class="simpleCart_total"> $0.00 </span>
 							</a>	
-							<p>></p>
+							<p></p>
 							<div class="clearfix"> </div>
 						</div></li>
 				</ul>
@@ -253,7 +274,10 @@ function checkUser(){
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
 						 <span>邮箱地址<label>*</label></span>
 						 <input name="email" type="text" id="email">
+						 <span id=myspan style="text-size:18pt;color:red;"></span>
+						 <span style="text-size:18pt;color:red;">${imp}</span>
 					 </div>
+
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
 						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>登录你的新账户</label>

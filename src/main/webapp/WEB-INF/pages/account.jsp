@@ -29,7 +29,17 @@ $(window).load(function() {
     controlNav: "thumbnails"
   });
 });
-
+function checkEmail(){
+	var email = document.getElementById("email").value;
+	var myReg=/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+	var myspan = document.getElementById("myspan");
+	if(myReg.test(email)){
+		return true;
+	}else{
+		myspan.innerText ="邮箱格式不对!";
+		return false;
+	}
+}
 function checkUser(){
 	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
@@ -46,6 +56,9 @@ function checkUser(){
 	}
 	if(email == ""  ){
 		alert("邮箱不能为空");
+		return false;
+	}
+	if(!checkEmail()){
 		return false;
 	}
 	if(password == ""  ){
@@ -261,7 +274,10 @@ function checkUser(){
 					 <div class="wow fadeInRight" data-wow-delay="0.4s">
 						 <span>邮箱地址<label>*</label></span>
 						 <input name="email" type="text" id="email">
+						 <span id=myspan style="text-size:18pt;color:red;"></span>
+						 <span style="text-size:18pt;color:red;">${imp}</span>
 					 </div>
+
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
 						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>登录你的新账户</label>
